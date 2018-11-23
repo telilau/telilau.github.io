@@ -1,0 +1,1948 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<!-- 2018-09-25 Tue 20:53 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Summary of Wallace</title>
+<meta name="generator" content="Org mode" />
+<style type="text/css">
+ <!--/*--><![CDATA[/*><!--*/
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #ccc;
+    box-shadow: 3px 3px 3px #eee;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: visible;
+    padding-top: 1.2em;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    background-color: white;
+    top: -10px;
+    right: 10px;
+    padding: 3px;
+    border: 1px solid black;
+  }
+  pre.src:hover:before { display: inline;}
+  /* Languages per Org manual */
+  pre.src-asymptote:before { content: 'Asymptote'; }
+  pre.src-awk:before { content: 'Awk'; }
+  pre.src-C:before { content: 'C'; }
+  /* pre.src-C++ doesn't work in CSS */
+  pre.src-clojure:before { content: 'Clojure'; }
+  pre.src-css:before { content: 'CSS'; }
+  pre.src-D:before { content: 'D'; }
+  pre.src-ditaa:before { content: 'ditaa'; }
+  pre.src-dot:before { content: 'Graphviz'; }
+  pre.src-calc:before { content: 'Emacs Calc'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-fortran:before { content: 'Fortran'; }
+  pre.src-gnuplot:before { content: 'gnuplot'; }
+  pre.src-haskell:before { content: 'Haskell'; }
+  pre.src-java:before { content: 'Java'; }
+  pre.src-js:before { content: 'Javascript'; }
+  pre.src-latex:before { content: 'LaTeX'; }
+  pre.src-ledger:before { content: 'Ledger'; }
+  pre.src-lisp:before { content: 'Lisp'; }
+  pre.src-lilypond:before { content: 'Lilypond'; }
+  pre.src-lua:before { content: 'Lua'; }
+  pre.src-matlab:before { content: 'MATLAB'; }
+  pre.src-mscgen:before { content: 'Mscgen'; }
+  pre.src-ocaml:before { content: 'Objective Caml'; }
+  pre.src-octave:before { content: 'Octave'; }
+  pre.src-org:before { content: 'Org mode'; }
+  pre.src-oz:before { content: 'OZ'; }
+  pre.src-plantuml:before { content: 'Plantuml'; }
+  pre.src-processing:before { content: 'Processing.js'; }
+  pre.src-python:before { content: 'Python'; }
+  pre.src-R:before { content: 'R'; }
+  pre.src-ruby:before { content: 'Ruby'; }
+  pre.src-sass:before { content: 'Sass'; }
+  pre.src-scheme:before { content: 'Scheme'; }
+  pre.src-screen:before { content: 'Gnu Screen'; }
+  pre.src-sed:before { content: 'Sed'; }
+  pre.src-sh:before { content: 'shell'; }
+  pre.src-sql:before { content: 'SQL'; }
+  pre.src-sqlite:before { content: 'SQLite'; }
+  /* additional languages in org.el's org-babel-load-languages alist */
+  pre.src-forth:before { content: 'Forth'; }
+  pre.src-io:before { content: 'IO'; }
+  pre.src-J:before { content: 'J'; }
+  pre.src-makefile:before { content: 'Makefile'; }
+  pre.src-maxima:before { content: 'Maxima'; }
+  pre.src-perl:before { content: 'Perl'; }
+  pre.src-picolisp:before { content: 'Pico Lisp'; }
+  pre.src-scala:before { content: 'Scala'; }
+  pre.src-shell:before { content: 'Shell Script'; }
+  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
+  /* additional language identifiers per "defun org-babel-execute"
+       in ob-*.el */
+  pre.src-cpp:before  { content: 'C++'; }
+  pre.src-abc:before  { content: 'ABC'; }
+  pre.src-coq:before  { content: 'Coq'; }
+  pre.src-groovy:before  { content: 'Groovy'; }
+  /* additional language identifiers from org-babel-shell-names in
+     ob-shell.el: ob-shell is the only babel language using a lambda to put
+     the execution function name together. */
+  pre.src-bash:before  { content: 'bash'; }
+  pre.src-csh:before  { content: 'csh'; }
+  pre.src-ash:before  { content: 'ash'; }
+  pre.src-dash:before  { content: 'dash'; }
+  pre.src-ksh:before  { content: 'ksh'; }
+  pre.src-mksh:before  { content: 'mksh'; }
+  pre.src-posh:before  { content: 'posh'; }
+  /* Additional Emacs modes also supported by the LaTeX listings package */
+  pre.src-ada:before { content: 'Ada'; }
+  pre.src-asm:before { content: 'Assembler'; }
+  pre.src-caml:before { content: 'Caml'; }
+  pre.src-delphi:before { content: 'Delphi'; }
+  pre.src-html:before { content: 'HTML'; }
+  pre.src-idl:before { content: 'IDL'; }
+  pre.src-mercury:before { content: 'Mercury'; }
+  pre.src-metapost:before { content: 'MetaPost'; }
+  pre.src-modula-2:before { content: 'Modula-2'; }
+  pre.src-pascal:before { content: 'Pascal'; }
+  pre.src-ps:before { content: 'PostScript'; }
+  pre.src-prolog:before { content: 'Prolog'; }
+  pre.src-simula:before { content: 'Simula'; }
+  pre.src-tcl:before { content: 'tcl'; }
+  pre.src-tex:before { content: 'TeX'; }
+  pre.src-plain-tex:before { content: 'Plain TeX'; }
+  pre.src-verilog:before { content: 'Verilog'; }
+  pre.src-vhdl:before { content: 'VHDL'; }
+  pre.src-xml:before { content: 'XML'; }
+  pre.src-nxml:before { content: 'XML'; }
+  /* add a generic configuration mode; LaTeX export needs an additional
+     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
+  pre.src-conf:before { content: 'Configuration File'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara { display: inline; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  .org-svg { width: 90%; }
+  /*]]>*/-->
+</style>
+<link rel="stylesheet" type="text/css" href="http://www.pirilampo.org/styles/bigblow/css/htmlize.css"/>
+<link rel="stylesheet" type="text/css" href="C:/users/user/.emacs.d/org-html-themes-lau/styles/bigblow/css/bigblow.css"/>
+<link rel="stylesheet" type="text/css" href="http://www.pirilampo.org/styles/bigblow/css/hideshow.css"/>
+<script type="text/javascript" src="http://www.pirilampo.org/styles/bigblow/js/jquery-1.11.0.min.js"></script>
+<script type="text/javascript" src="http://www.pirilampo.org/styles/bigblow/js/jquery-ui-1.10.2.min.js"></script>
+<script type="text/javascript" src="http://www.pirilampo.org/styles/bigblow/js/jquery.localscroll-min.js"></script>
+<script type="text/javascript" src="http://www.pirilampo.org/styles/bigblow/js/jquery.scrollTo-1.4.3.1-min.js"></script>
+<script type="text/javascript" src="http://www.pirilampo.org/styles/bigblow/js/jquery.zclip.min.js"></script>
+<script type="text/javascript" src="http://www.pirilampo.org/styles/bigblow/js/bigblow.js"></script>
+<script type="text/javascript" src="http://www.pirilampo.org/styles/bigblow/js/hideshow.js"></script>
+<script type="text/javascript" src="http://www.pirilampo.org/styles/lib/js/jquery.stickytableheaders.min.js"></script>
+<script type="text/javascript">
+/*
+@licstart  The following is the entire license notice for the
+JavaScript code in this tag.
+
+Copyright (C) 2012-2017 Free Software Foundation, Inc.
+
+The JavaScript code in this tag is free software: you can
+redistribute it and/or modify it under the terms of the GNU
+General Public License (GNU GPL) as published by the Free Software
+Foundation, either version 3 of the License, or (at your option)
+any later version.  The code is distributed WITHOUT ANY WARRANTY;
+without even the implied warranty of MERCHANTABILITY or FITNESS
+FOR A PARTICULAR PURPOSE.  See the GNU GPL for more details.
+
+As additional permission under GNU GPL version 3 section 7, you
+may distribute non-source (e.g., minimized or compacted) forms of
+that code without the copy of the GNU GPL normally required by
+section 4, provided you include this license notice and a URL
+through which recipients can access the Corresponding Source.
+
+
+@licend  The above is the entire license notice
+for the JavaScript code in this tag.
+*/
+<!--/*--><![CDATA[/*><!--*/
+ function CodeHighlightOn(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(null != target) {
+     elem.cacheClassElem = elem.className;
+     elem.cacheClassTarget = target.className;
+     target.className = "code-highlighted";
+     elem.className   = "code-highlighted";
+   }
+ }
+ function CodeHighlightOff(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(elem.cacheClassElem)
+     elem.className = elem.cacheClassElem;
+   if(elem.cacheClassTarget)
+     target.className = elem.cacheClassTarget;
+ }
+/*]]>*///-->
+</script>
+</head>
+<body>
+<div id="content">
+<h1 class="title">Summary of Wallace</h1>
+
+<div id="outline-container-org1c2d866" class="outline-2">
+<h2 id="org1c2d866">Nouns</h2>
+<div class="outline-text-2" id="text-org1c2d866">
+</div><div id="outline-container-orgaf10206" class="outline-3">
+<h3 id="orgaf10206">Nominative Case</h3>
+<div class="outline-text-3" id="text-orgaf10206">
+</div><div id="outline-container-org3a1f0b6" class="outline-4">
+<h4 id="org3a1f0b6">Primary Uses of the Nominative</h4>
+<div class="outline-text-4" id="text-org3a1f0b6">
+<ul class="org-ul">
+<li><b>Subject</b></li>
+<li><b>Predicate Nominative</b>
+<ul class="org-ul">
+<li>Joined by an equative verb. S-PN Rule. 
+<ul class="org-ul">
+<li><i>Subset proposition</i>. When only 1 nom. substantive has the following grammatical tag, the subject is (1) pronoun (2) articular (3) proper name.</li>
+<li><i>Convertible proposition</i>. When both nouns have the grammatical tag, the priority for S is (1) pronoun (2) articular and proper name have same priority. Use word order.</li>
+<li>Substitution for PN (εἰς + acc). With γίνομαι, εἰμί (future tense), λογίζομαι.</li>
+</ul></li>
+</ul></li>
+<li><b>Nominative in Simple Apposition</b></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org0560ed2" class="outline-4">
+<h4 id="org0560ed2">Grammatically Independent Uses of the Nominative</h4>
+<div class="outline-text-4" id="text-org0560ed2">
+<ul class="org-ul">
+<li><b>Nominative Absolute</b></li>
+<li><b>Pendent Nominative</b>
+<ul class="org-ul">
+<li>Nominative is logical subject at beginning of sentence, but replaced by a pronoun in the required case by the syntax in the following sentence.</li>
+</ul></li>
+<li><b>Parenthetic Nominative</b> (subj of an explanatory clause within another clause)</li>
+<li>Nominative in Proverbial Expressions</li>
+<li><b>Nominative for Vocative</b></li>
+<li>Nominative of Exclamation</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org58be4ce" class="outline-4">
+<h4 id="org58be4ce">Nominatives in Places of Oblique Cases</h4>
+<div class="outline-text-4" id="text-org58be4ce">
+<ul class="org-ul">
+<li>Nominative of Appellation (nominative is <i>treated</i> as a proper name)</li>
+<li>Nominative of Apposition to Oblique Cases</li>
+</ul>
+</div>
+</div>
+</div>
+<div id="outline-container-orgaffe8f5" class="outline-3">
+<h3 id="orgaffe8f5">Vocative Case</h3>
+<div class="outline-text-3" id="text-orgaffe8f5">
+</div><div id="outline-container-org831e87f" class="outline-4">
+<h4 id="org831e87f">Direct Address</h4>
+<div class="outline-text-4" id="text-org831e87f">
+<ul class="org-ul">
+<li><b>Simple Address</b> (use without ὦ preceding it)</li>
+<li>Emphatic (or, Emotional Address) (use with ὦ preceding it)</li>
+<li>The Exceptional Usages in Acts</li>
+<li>Simplification</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orgcf6f15c" class="outline-4">
+<h4 id="orgcf6f15c">Exclamation</h4>
+</div>
+<div id="outline-container-orgff991d2" class="outline-4">
+<h4 id="orgff991d2">Apposition (the whole vocation construction is emphatic/emotional address)</h4>
+</div>
+</div>
+<div id="outline-container-org67b531c" class="outline-3">
+<h3 id="org67b531c">Genitive Case</h3>
+<div class="outline-text-3" id="text-org67b531c">
+<p>
+Main force is adjectival while dative is adverbial 
+</p>
+</div>
+<div id="outline-container-orgfa22556" class="outline-4">
+<h4 id="orgfa22556">Adjectival Genitive</h4>
+<div class="outline-text-4" id="text-orgfa22556">
+<ul class="org-ul">
+<li>Descriptive Genitive [characterized by, described by]</li>
+<li><b>Possessive Genitive</b> [belonging to, possessed by]
+<ul class="org-ul">
+<li>Possessive pronouns typically used. Head noun (N) is something that can be possessed (e.g. entities, not abstract ideas) by Ng.</li>
+</ul></li>
+<li><b>Genitive of Relationship</b> (familial relationship)</li>
+<li><b>Partitive Genitive</b> ("Wholative") [which is a part of]
+<ul class="org-ul">
+<li>Opp to gen of apposition.</li>
+</ul></li>
+<li><b>Attributive Genitive</b> (Hebrew Genitive; Genitive of Quality; N-Ng = Adj(Ng)-N)</li>
+<li>Attributed Genitive (N-Ng = Adj(N)-Ng)</li>
+<li>Genitive of Material [made out of, consisting of]</li>
+<li>Genitive of Content [full of, containing]</li>
+<li><b>Genitive in Simple Apposition</b>
+<ul class="org-ul">
+<li>Gen of Simple App (equative); Gen of App is subset (noun(gen of app))</li>
+</ul></li>
+<li><b>Genitive of Apposition</b> [which is, who is]
+<ul class="org-ul">
+<li>The head noun (1) states a large category, (2) will be ambiguous, (3) metaphorical.</li>
+</ul></li>
+<li>Genitive of Destination (aka Destination or Purpose) [destined for, toward]</li>
+<li>Predicate Genitive
+<ul class="org-ul">
+<li>Emphatic kind of simple apposition where the equative verb is a genitive participle.</li>
+</ul></li>
+<li>Genitive of Subordination [over]</li>
+<li>Genitive of Production/Producer [produced by]</li>
+<li>Genitive of Product [which produces]</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orge08187e" class="outline-4">
+<h4 id="orge08187e">Ablatival Genitive</h4>
+<div class="outline-text-4" id="text-orge08187e">
+<ul class="org-ul">
+<li>Genitive of Separation [out of, away from, from]</li>
+<li>Genitive of Source (or Origin) [out of, derived from, dependent on]</li>
+<li><b>Genitive of Comparison</b> [than]
+<ul class="org-ul">
+<li>After a comparative adj.</li>
+</ul></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org125dfb4" class="outline-4">
+<h4 id="org125dfb4">Verbal Genitive (i.e., Genitive Related to a Verbal Noun)</h4>
+<div class="outline-text-4" id="text-org125dfb4">
+<ul class="org-ul">
+<li><b>Subjective Genitive</b> (subj of verbal idea implicit in head noun)</li>
+<li><b>Objective Genitive</b> (direct obj of verbal idea implicit in head noun)</li>
+<li>Plenary Genitive (gen noun is both subj and obj)</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org94e5044" class="outline-4">
+<h4 id="org94e5044">Adverbial Genitive</h4>
+<div class="outline-text-4" id="text-org94e5044">
+<p>
+Use of genitive similar in force to an adverb, therefore related to a verb or adj. 
+</p>
+<ul class="org-ul">
+<li>Genitive of Price or Value or Quantity [for]</li>
+<li><b>Genitive of Time</b> [within which or during which]
+<ul class="org-ul">
+<li>Indicates kind of time or time during which the word to which it stands related to takes place.</li>
+</ul></li>
+<li>Genitive of Place [where or within which]</li>
+<li>Genitive of Means [by]</li>
+<li>Genitive of Agency (personal agent by which action in view is accomplished) [by]</li>
+<li><b>Genitive Absolute</b></li>
+<li>Genitive of Reference [with reference to]</li>
+<li>Genitive of Association [with, in association with]
+<ul class="org-ul">
+<li>Head noun is usually prefixed with συν-</li>
+</ul></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orgc41e77f" class="outline-4">
+<h4 id="orgc41e77f">After Certain Words</h4>
+<div class="outline-text-4" id="text-orgc41e77f">
+<ul class="org-ul">
+<li><b>Genitive after Certain Verbs</b> (as Direct Objects)</li>
+<li>Genitive after Certain Adjectives (and Adverbs)</li>
+<li>Genitive after Certain Nouns</li>
+<li><b>Genitive after Certain Prepositions</b></li>
+</ul>
+</div>
+</div>
+</div>
+<div id="outline-container-org15a41cf" class="outline-3">
+<h3 id="org15a41cf">Dative Case</h3>
+<div class="outline-text-3" id="text-org15a41cf">
+</div><div id="outline-container-orgfc43dd6" class="outline-4">
+<h4 id="orgfc43dd6">Pure Dative Uses</h4>
+<div class="outline-text-4" id="text-orgfc43dd6">
+<ul class="org-ul">
+<li><b>Dative Indirect Object</b> [to, for]
+<ul class="org-ul">
+<li>Indirect object only occurs with a transitive verb.</li>
+</ul></li>
+<li><b>Dative of Interest</b> (Advantage &amp; Disadvantage) [for the benefit of, against, to the disadvantage of]
+<ul class="org-ul">
+<li>Similar to category of indirect object but interest is stressed here.</li>
+</ul></li>
+<li><b>Dative of Reference/Respect</b> [with reference to, concerning, about]</li>
+<li>Ethical Dative [as far as I am concerned]</li>
+<li>Dative of Destination [to]
+<ul class="org-ul">
+<li>Similar to indirect obj but takes intransitive verb.</li>
+</ul></li>
+<li>Dative of Recipient
+<ul class="org-ul">
+<li>Personal noun in dative case occurring in verbless constructions.</li>
+</ul></li>
+<li>Dative of Possession [belonging to, possessed by]</li>
+<li>Dative of Thing Possessed [who possesses]</li>
+<li>Predicate Dative</li>
+<li><b>Dative in Simple Apposition</b></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org0702965" class="outline-4">
+<h4 id="org0702965">Local Dative Uses</h4>
+<div class="outline-text-4" id="text-org0702965">
+<ul class="org-ul">
+<li>Dative of Place</li>
+<li><b>Dative of Sphere</b> [in the sphere of]
+<ul class="org-ul">
+<li>Dat of reference views the word to which the dat stands as separated, while dat of sphere, it is incorporated within the realm of the dative.</li>
+</ul></li>
+<li><b>Dative of Time</b> (when)
+<ul class="org-ul">
+<li>Denotes point of time.</li>
+</ul></li>
+<li>Dative of Rule [according to, in conformity with]</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org9d338a7" class="outline-4">
+<h4 id="org9d338a7">Instrumental Dative Uses</h4>
+<div class="outline-text-4" id="text-org9d338a7">
+<ul class="org-ul">
+<li><b>Dative of Association</b> [in association with]
+<ul class="org-ul">
+<li>Diff between gen of assoc and dative of assoc is that gen is used with nouns (which begin with συν-) while dative is used with verbs (which begin with συν-)</li>
+</ul></li>
+<li>Dative of Manner (or Adverbial Dative) [with, in (answering How?)]</li>
+<li><b>Dative of Means/Instrument</b> [by, by means of, with]</li>
+<li>Dative of Agency [by, through]</li>
+<li>Dative of Measure/Degree of Difference [by]</li>
+<li><b>Dative of Cause</b> [because of]
+<ul class="org-ul">
+<li>Dat of means = how, dat of cause = the why; dat of means = method, dat of cause = basis.</li>
+</ul></li>
+<li>Cognate Dative</li>
+<li>Dative of Material</li>
+<li>Dative of Content</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orgcf08925" class="outline-4">
+<h4 id="orgcf08925">The Uses of the Dative After Certain Words</h4>
+<div class="outline-text-4" id="text-orgcf08925">
+<ul class="org-ul">
+<li><b>Dative Direct Object</b> [to, in]</li>
+<li>Dative After Certain Nouns</li>
+<li>Dative After Certain Adjectives</li>
+<li><b>Dative After Certain Prepositions</b></li>
+</ul>
+</div>
+</div>
+</div>
+<div id="outline-container-org3a30659" class="outline-3">
+<h3 id="org3a30659">Accusative Case</h3>
+<div class="outline-text-3" id="text-org3a30659">
+</div><div id="outline-container-org3c64c68" class="outline-4">
+<h4 id="org3c64c68">Substantival Uses of the Accusative</h4>
+<div class="outline-text-4" id="text-org3c64c68">
+<ul class="org-ul">
+<li><b>Accusative Direct Object</b></li>
+<li><b>Double Accusatives</b>
+<ul class="org-ul">
+<li><b>Person-Thing</b>
+<ul class="org-ul">
+<li>The thing is the nearer object; the person is the more remote. Person is affected while the thing is effected. 4 categories (1) Teaching, Reminding (2) Clothing, Anointing (3) Inquiring, Asking (4) Other Types of causative ideas</li>
+</ul></li>
+<li><b>Object-Complement</b>
+<ul class="org-ul">
+<li>The complement (noun, adj, participle, inf) predicates the direct obj. Identification of O-C follow the S-P nominative clause. Given the following word order:
+<ul class="org-ul">
+<li>C-O [C-Definite Qualitative; O-Definite]; O-C [O-Definite; C-Qualitative Indefinite]. Categories are (1) Calling, designating, confessing (2) Making, appointing (3) Sending, expelling (4) Considering, regarding (5) Having, taking (6) Declaring, presenting</li>
+</ul></li>
+</ul></li>
+</ul></li>
+<li>Cognate Accusative</li>
+<li>Predicate Accusative
+<ul class="org-ul">
+<li>Substantive and predicate are joined by an equative verb (inf. or ptc.). Determine S-P by following S-P nominative rule, except interrogative pronouns are the P.</li>
+</ul></li>
+<li><b>Accusative Subject of Infinitive</b>
+<ul class="org-ul">
+<li>When an inf. has 2 acc. 
+<ul class="org-ul">
+<li>subj acc-predicate acc with equative verb inf (S-P). Follow S-P nominative rule.</li>
+<li>subj acc-direct object with transitive verb inf (S-O). Use common sense.</li>
+</ul></li>
+</ul></li>
+<li>Accusative of Retained Object</li>
+<li>Pendent Accusative
+<ul class="org-ul">
+<li>Grammatical independent use of the acc. The acc is "hanging" at the beginning of the clause, but referenced later by a pronoun.</li>
+</ul></li>
+<li><b>Accusative in Simple Apposition</b></li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org5b1d683" class="outline-4">
+<h4 id="org5b1d683">Adverbial Uses of the Accusative</h4>
+<div class="outline-text-4" id="text-org5b1d683">
+<ul class="org-ul">
+<li>Adverbial Accusative (Accusative of Manner)
+<ul class="org-ul">
+<li>Functions like an adverb in that it qualifies the action of the verb</li>
+</ul></li>
+<li><b>Accusative of Measure</b> (or Extent of Space or Time)
+<ul class="org-ul">
+<li>Use for the extent of (space) or for the duration of (time). Gen. refers to kind of time, dat. is point in time (answering "When?"), and acc. is extent of time (answering "How long?").</li>
+</ul></li>
+<li>Accusative of Respect of (General) Reference</li>
+<li>Accusative in Oaths</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orga455a0a" class="outline-4">
+<h4 id="orga455a0a">Accusative After Certain Prepositions</h4>
+</div>
+</div>
+</div>
+<div id="outline-container-org465239f" class="outline-2">
+<h2 id="org465239f">Article</h2>
+<div class="outline-text-2" id="text-org465239f">
+</div><div id="outline-container-orge20b392" class="outline-3">
+<h3 id="orge20b392">Regular Uses of the Article</h3>
+<div class="outline-text-3" id="text-orge20b392">
+<ul class="org-ul">
+<li>As a Pronoun ([partially] Independent Use)
+<ul class="org-ul">
+<li><b>Personal Pronoun</b> [he, she, it]: Nom. art. in place of 3p pronoun. With ὁ μέν … ὁ δέ or ὁ δέ.</li>
+<li>Alternative Personal Pronoun [the one &#x2026; the other]: Nom. art. (1) ὁ μέν … ὁ δέ (2) mild contrast</li>
+<li><b>Relative Pronoun</b> [who, which]: esp after a noun before a phrase</li>
+<li>Possessive Pronoun [his, her]</li>
+</ul></li>
+<li>With Substantives (Dependent or Modifying Use)
+<ul class="org-ul">
+<li>Individualizing Article
+<ul class="org-ul">
+<li>Simple Identification</li>
+<li><b>Anaphoric</b> (Previous Reference)
+<ul class="org-ul">
+<li>1st mention of substantive is usually anarthrous.</li>
+</ul></li>
+<li>Well-known</li>
+<li>Par Excellence (Extreme of a particular class)</li>
+<li>Mondadic (One of a kind, unique)</li>
+<li><b>Abstract</b> (Article with Abstract nouns)
+<ul class="org-ul">
+<li>Focus on quality while generic focus on a category</li>
+</ul></li>
+<li>Deictic ("Pointing" Article - demonstrative)</li>
+<li>Kataphoric (Following Reference)</li>
+</ul></li>
+<li><b>Generic Article</b> (Categorical Article) [as a class]
+<ul class="org-ul">
+<li>Distinguish one class from another. May translate with an indefinite article.</li>
+</ul></li>
+</ul></li>
+<li><b>As a Substantiver</b> (With Certain Parts of Speech)
+<ul class="org-ul">
+<li>Adv</li>
+<li>Adj</li>
+<li>Participles</li>
+<li>Inf</li>
+<li>Non-gen article followed by gen word or phrase "son, things"</li>
+<li>Prepositional phrase</li>
+<li>Particles</li>
+<li>Clauses, statements &amp; quotations.</li>
+</ul></li>
+<li><b>As a Function Marker</b> (may or may not bear semantic force)
+<ul class="org-ul">
+<li>To Denote adjectival Positions - Art in 2nd attributive position has no semantic meaning.</li>
+<li>With Possessive Pronouns</li>
+<li>In Genitive Phrases (Appollonius' Canon). Both head and gen noun normally have or lack the art</li>
+<li>With Indeclinable nouns</li>
+<li>With Participles - art functions as a substantiver and as a function marker</li>
+<li>With Demonstratives - in predicate position to indicate attributive function</li>
+<li>With Nominative Nouns (to denote subject)</li>
+<li>To distinguish Subject from Pred-Nom and Obj from Comp
+<ul class="org-ul">
+<li>With the Infinitive to denote various functions.</li>
+</ul></li>
+</ul></li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org38483bf" class="outline-3">
+<h3 id="org38483bf">Absence of the Article</h3>
+<div class="outline-text-3" id="text-org38483bf">
+<p>
+A noun must be definite with the article, and may be definite without the article. 
+Indef (God is a love) - Qual (God is love) - Def (God is the love) 
+</p>
+<ul class="org-ul">
+<li><b>Indefinite</b> (One member of a class, without specifying which member)</li>
+<li><b>Qualitative</b> (Stress on quality, nature, essence)</li>
+</ul>
+<p>
+Similar to generic noun as it focus on kind but unlike generic as it focus on one individual rather than a class. Most abstract nouns will be qual, but not generic because no class is in view 
+</p>
+<ul class="org-ul">
+<li><b>Definite</b> (Stress on individual identity)
+<ul class="org-ul">
+<li>Proper Names</li>
+<li>Object of a Preposition (if articular, must be definite; if anarthous, may be definite)</li>
+<li>With Ordinal Numbers</li>
+<li>Predicate Nominative (if PN precede copula, it may be definite, Coldwell's Rule)</li>
+<li>Complement in Obj-Complement Construction (if precede the Obj)</li>
+<li>Monadic nouns</li>
+<li>Abstract Nouns (qualitative definite)</li>
+<li>Genitive Construction (Apollonius' Corollary)
+<ul class="org-ul">
+<li>When head and gen nouns are anarthrous, both will usually have the same semantic force</li>
+<li>With Pronominal Adj (e.g. πᾶς, ὅλος - all or every)</li>
+</ul></li>
+<li>Generic Nouns (little diff bw articular generics and anarthrous generics)</li>
+</ul></li>
+</ul>
+</div>
+
+<div id="outline-container-orgbfdda9c" class="outline-4">
+<h4 id="orgbfdda9c">Apollonius’ Corollary</h4>
+<div class="outline-text-4" id="text-orgbfdda9c">
+<ul class="org-ul">
+<li>I don’t think this works as a good rule. It does not work in the LXX.
+<ul class="org-ul">
+<li>1 Kgdms 2:27 “And a man of God came to Eli” καὶ ἦλθεν ἄνθρωπος θεοῦ πρὸς Ηλι.</li>
+<li>1 Kgdms 9:6 “Behold, now a man of God is in this city” Ἰδοὺ δὴ ἄνθρωπος τοῦ θεοῦ ἐν τῇ πόλει ταύτῃ.</li>
+<li>3 Kgdms 12:22 “And a word of the Lord came to Samaias, a man of God, saying ἐγένετο λόγος κυρίου πρὸς Σαμαιαν ἄνθρωπον τοῦ θεοῦ λέγων</li>
+<li>3 Kgdms 13:1 “And behold, a man of God came out of Ioudas to Baithel by word of the Lord” Καὶ ἰδοὺ ἄνθρωπος τοῦ θεοῦ ἐξ Ιουδα παρεγένετο ἐν λόγῳ κυρίου εἰς Βαιθηλ</li>
+<li>3 Kgms 17:24 “And the woman said to Elijah, ‘Now I know that you are a man of God, and that the word of the LORD in your mouth is truth.’” (καὶ εἶπεν ἡ γυνὴ πρὸς Ηλιου Ἰδοὺ ἔγνωκα ὅτι ἄνθρωπος θεοῦ εἶ σὺ καὶ ῥῆμα κυρίου ἐν στόματί σου ἀληθινόν)</li>
+</ul></li>
+<li>The genitival noun clearly delimits the head noun in some fashion, e.g. “a man of God” is clearly as smaller category that “a man.” But it is unlikely that both head and genitive nouns will have the same semantic domain.</li>
+<li>Moreover, other grammar books don’t use Apollonius’ corollary.</li>
+</ul>
+</div>
+</div>
+</div>
+<div id="outline-container-org04211de" class="outline-3">
+<h3 id="org04211de">Special Uses and Non-Uses of the Article</h3>
+<div class="outline-text-3" id="text-org04211de">
+<ul class="org-ul">
+<li>Colwell's Rule</li>
+</ul>
+<p>
+In general, PN is anarthrous and it follows the copula. It is usually qualitative or indefinite. 
+</p>
+<ul class="org-ul">
+<li>Colwell's Rule.  A PN that precedes the copula, and which is apparently definite from the context, usually lacks the article. This does not imply the converse, that an anarthous PN that precedes the verb is usually definite.</li>
+<li>Colwell's Construction. An anarthrous pre-verbal PN is normally qualitative, sometimes definite, and only rarely indefinite.</li>
+<li>Absent verb. When an anarthrous PN stands before the subj, it will either be qualitative or definite.</li>
+</ul>
+<ul class="org-ul">
+<li>Granville Sharp Rule</li>
+</ul>
+<p>
+In the TSKS construction, the 2nd noun refers to the same person mentioned with the 1st noun when: (1) neither is impersonal, (2) neither is plural, (3) neither is a proper name. 
+</p>
+<ul class="org-ul">
+<li>Constructions involving Impersonal, Plural, and Proper names 
+<ul class="org-ul">
+<li>Proper names - They're united under 1 article for the purposes at hand</li>
+<li>Plural Personal Constructions or Impersonal Construction 
+<ul class="org-ul">
+<li>Distinct Groups, though United ( [1] [2] )</li>
+<li>Overlapping Groups</li>
+<li>1st Group Subset of 2nd</li>
+<li>2nd Group Subset of 1st</li>
+<li>Both Identical</li>
+</ul></li>
+</ul></li>
+</ul>
+</div>
+
+<div id="outline-container-org40607db" class="outline-4">
+<h4 id="org40607db">Apollonius’ Canon</h4>
+<div class="outline-text-4" id="text-org40607db">
+<ul class="org-ul">
+<li>Nouns in regimen (i.e. the condition both of the governing and governed noun) must have articles prefixed to both of them or neither. 
+<ul class="org-ul">
+<li>ἐν λόγῳ ἀληθείας or ἐν τῷ λόγῳ τῆς ἀληθείας.</li>
+</ul></li>
+<li>Modification: The governing noun may be anarthrous without necessitating the omission of the article with the governed. 
+<ul class="org-ul">
+<li>ὁ λόγος ἀληθείας (impossible) || λόγος τῆς ἀληθείας (possible).</li>
+</ul></li>
+<li>Biblio.
+<ul class="org-ul">
+<li>See also S. D. Hull, “Exception to Apollonius’ Canon in the NT: A Grammatical Study,” Trinity Journal 7 (1986): 3–16.</li>
+</ul></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org91f08b0" class="outline-4">
+<h4 id="org91f08b0">Colwell’s Rule</h4>
+<div class="outline-text-4" id="text-org91f08b0">
+<p>
+The following rules may be tentatively formulated to describe the use of the article with definite predicate nouns in sentences in which the verb occurs. (1) Definite predicate nouns here regularly take the article. (2) The exceptions are for the most part due to a change in word-order: (a) Definite predicate nouns which follow the verb (this is the usual order) usually take the article; (b) Definite predicate nouns which precede the verb usually lack the article; (c) Proper names regularly lack the article in the predicate; (d) Predicate nominatives in relative clauses regularly follow the verb whether or not they have the article.
+</p>
+</div>
+</div>
+</div>
+</div>
+<div id="outline-container-orgb5d86c6" class="outline-2">
+<h2 id="orgb5d86c6">Adjectives</h2>
+<div class="outline-text-2" id="text-orgb5d86c6">
+</div><div id="outline-container-org98c8e3e" class="outline-3">
+<h3 id="org98c8e3e">"Non-Adjectival" Uses of the Adj</h3>
+<div class="outline-text-3" id="text-org98c8e3e">
+<ul class="org-ul">
+<li>Adverbial Use of the Adj</li>
+<li><b>The Independent or Substantival Use of the Adj</b>
+<ul class="org-ul">
+<li>Usually, a substantival adj will have an art to point out that it is indeed substantival</li>
+</ul></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orgc5e2fb6" class="outline-3">
+<h3 id="orgc5e2fb6">The Use of the Positive, Comparative, and Superlative Forms of the Adj</h3>
+<div class="outline-text-3" id="text-orgc5e2fb6">
+<ul class="org-ul">
+<li>Use of the Positive Adj
+<ul class="org-ul">
+<li>Normal Usage</li>
+<li>Positive for Comparative</li>
+<li>Positive for Superlative (Adj is in attributive position and with par excellence art)</li>
+</ul></li>
+<li>Use of the Comparative Adj
+<ul class="org-ul">
+<li>Normal Usage</li>
+<li>Comparative for Superlative</li>
+<li>Comparative for Elative (eg very strong man)</li>
+</ul></li>
+<li>Use of the Superlative Adj
+<ul class="org-ul">
+<li>Normal Usage (usually with protos and eschatos)</li>
+<li>Supelative for Elative</li>
+<li>Superlative for Comparative (when compare only 2 things)</li>
+</ul></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org2c3165d" class="outline-3">
+<h3 id="org2c3165d">The Relation of Adj to Noun</h3>
+<div class="outline-text-3" id="text-org2c3165d">
+<ul class="org-ul">
+<li>When the Article is Present
+<ul class="org-ul">
+<li><b>The Attributive Positions</b>
+<ul class="org-ul">
+<li>1st Attributive Position (TAN)</li>
+<li>2nd Attributive Position (TNTA)</li>
+<li>3rd Attributive Position (NTA)</li>
+</ul></li>
+<li><b>The Predicate Positions</b>
+<ul class="org-ul">
+<li><b>1st Predicate Position</b> (ATN)</li>
+<li><b>2nd Predicate Position</b> (TNA)</li>
+</ul></li>
+</ul></li>
+<li>When the Article is Absent
+<ul class="org-ul">
+<li>The Anarthrous Adjective-Noun Construction</li>
+<li>Determine from context if its anarthrous 1st attributive/predicate position</li>
+<li>The Anarthrous Noun-Adjective Construction
+<ul class="org-ul">
+<li>4th Attributive Position</li>
+<li>Anarthrous 2nd Predicate Position</li>
+</ul></li>
+</ul></li>
+</ul>
+</div>
+</div>
+</div>
+<div id="outline-container-orgc9a80a3" class="outline-2">
+<h2 id="orgc9a80a3">Person and Number</h2>
+<div class="outline-text-2" id="text-orgc9a80a3">
+</div><div id="outline-container-org4371ae5" class="outline-3">
+<h3 id="org4371ae5">8.1	Person</h3>
+<div class="outline-text-3" id="text-org4371ae5">
+<ul class="org-ul">
+<li>1st Person for 3rd Person ("I" = "Someone")</li>
+<li>2nd Person for 3rd Person ("You" = "Someone")? (Likely to have no indefinite 2nd person)</li>
+<li>1st Person Plural Constructions: The Scope of "We" (Inclusive We = Author &amp; readers (Exclusive We = I &amp; my associates (Editorial We = I ))) 
+<ul class="org-ul">
+<li>Editorial "We":</li>
+</ul></li>
+</ul>
+<p>
+When (1) author shift unexpectedly from singular to plural, (2) usually nom. case 
+</p>
+<ul class="org-ul">
+<li>Inclusive "We" vs Exclusive "We"</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org1a7668c" class="outline-3">
+<h3 id="org1a7668c">8.2	Number</h3>
+<div class="outline-text-3" id="text-org1a7668c">
+<ul class="org-ul">
+<li>Neuter Plural Subject with Singular Verb</li>
+<li>Collective Singular Subject with Plural Verb</li>
+<li>Compound Subject with Singular Verb</li>
+</ul>
+<p>
+2 subjects joined by a conjunction. Stress is on the 1st named subject. 
+</p>
+<ul class="org-ul">
+<li>The Indefinite Plural ("They" = "Someone")</li>
+<li>The Categorical Plural (aka Generalizing Plural)</li>
+</ul>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org0e8bb57" class="outline-2">
+<h2 id="org0e8bb57">Voice</h2>
+<div class="outline-text-2" id="text-org0e8bb57">
+<p>
+Transitiveness relates action of a verb to an object, while voice relates the action of a verb to its subject. Transitive verbs can be translated to the passive. 
+</p>
+</div>
+<div id="outline-container-orga144132" class="outline-3">
+<h3 id="orga144132">9.1	Active Voice</h3>
+<div class="outline-text-3" id="text-orga144132">
+<p>
+The subj. performs, produces, or experiences the action or exists in the state expressed by the verb. 
+</p>
+<ul class="org-ul">
+<li>Simple Active
+<ul class="org-ul">
+<li>Subject performs or experiences the action.</li>
+</ul></li>
+<li>Causative Active
+<ul class="org-ul">
+<li>Subject is not directly involved in the action, but is the ultimate source or cause of it.</li>
+</ul></li>
+<li>Stative Active (occurs with equative verbs and verbs that use am + a pred adj)
+<ul class="org-ul">
+<li>Subject exists in the state indicated by the verb.</li>
+</ul></li>
+<li>Reflexive Active
+<ul class="org-ul">
+<li>Subject acts upon himself. Usually, reflexive pronoun is used as the direct object.</li>
+</ul></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org54918da" class="outline-3">
+<h3 id="org54918da">9.2	Middle Voice</h3>
+<div class="outline-text-3" id="text-org54918da">
+<p>
+The subj. performs or experiences the action expressed by the verb in such a way that emphasizes the subject's participation. Active voice emphasizes action of the verb, middle emphasize actor [subj] of the verb. 
+</p>
+<ul class="org-ul">
+<li>Direct Middle
+<ul class="org-ul">
+<li>Subj acts on himself. Translate verb + himself as direct obj.</li>
+</ul></li>
+<li>Redundant Middle
+<ul class="org-ul">
+<li>Require an explicit pronoun to convey reflexive notion.</li>
+</ul></li>
+<li>Indirect Middle
+<ul class="org-ul">
+<li>Subj. acts for/by himself, or in his own interest.</li>
+</ul></li>
+<li>Causative Middle
+<ul class="org-ul">
+<li>Subj. has something done for or to himself.</li>
+</ul></li>
+<li>Permissive Middle
+<ul class="org-ul">
+<li>Subj. allows something to be done for or to himself.</li>
+</ul></li>
+<li>Reciprocal Middle
+<ul class="org-ul">
+<li>Used with plural subjects to indicate interaction among themselves. Replace with ἀλλήλων.</li>
+</ul></li>
+<li>Deponent Middle
+<ul class="org-ul">
+<li>No active form but is active in meaning.</li>
+</ul></li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org00b9313" class="outline-3">
+<h3 id="org00b9313">9.3	Passive Voice</h3>
+<div class="outline-text-3" id="text-org00b9313">
+<p>
+Subj. is acted upon or receives the action expressed by the verb. No volition - nor even necessarily awareness of the action is implied in the part of the subj. 
+</p>
+
+
+<p>
+Agency	Preposition (Case)	Translation
+Ultimate Agent	ὑπό (gen)  
+ἀπό (gen)  
+παρά (gen) 	by  
+by, of  
+from, by
+Intermediate Agent	διά (gen) 	through, by
+Impersonal Means	ἐν (dat)  
+dative (no prep)  
+ἐκ (gen) 	by, with  
+by, with  
+by, of
+</p>
+
+<ul class="org-ul">
+<li>Simple Passive</li>
+<li>Causative/Permissive Passive</li>
+<li>Deponent Passive</li>
+</ul>
+</div>
+</div>
+</div>
+<div id="outline-container-org585f144" class="outline-2">
+<h2 id="org585f144">Moods</h2>
+<div class="outline-text-2" id="text-org585f144">
+<p>
+Voice indicates how the subject relates to the action or state of the verb; tense indicates kind of action; mood presents the verbal action or state wrt its actuality or potentiality. 
+Defn: Mood is the morphological feature of a verb that a speaker uses to portray his or her affirmation as to the certainty of the verbal action or state (actuality or potentiality). (1) does not correspond to reality (2) does not indicate a speaker's perception of reality (3) indicate speaker's portrayal or representation. 
+Portrayal : Indicative - certain/asserted; Subjunctive - probable/desirable; Optative - possible; Imperative - intended. 
+</p>
+</div>
+<div id="outline-container-org8bd5183" class="outline-3">
+<h3 id="org8bd5183">10.1	Indicative Mood (Mood of assertion or presentation of certainty)</h3>
+<div class="outline-text-3" id="text-org8bd5183">
+<ul class="org-ul">
+<li>Declarative Indicative</li>
+<li>Interrogative Indicative (don't ask the how or why, but the what)</li>
+<li>Conditional Indicative (used in protasis of conditional statements made explicit with ei)</li>
+<li>Potential Indicative (with verbs of obligation, wish or desire, followed by an inf.)</li>
+<li>Cohortative Indicative (Command, Volitive - future indicative)</li>
+<li>Indicative with ὅτι
+<ul class="org-ul">
+<li>Substantival ὅτι clauses 
+<ul class="org-ul">
+<li>Subject Clause</li>
+<li>Direct Object Clause 
+<ul class="org-ul">
+<li>Direct Object Clause Proper (not after a verb of perception)</li>
+<li>Direct Discourse (after a verb of perception)</li>
+<li>Indirect Discourse (after a verb of perception)</li>
+</ul></li>
+</ul></li>
+</ul></li>
+</ul>
+<p>
+The tense of the Greek verb in indirect discourse is retained from direct discourse.
+</p>
+<ul class="org-ul">
+<li>Apposition [namely, that] - usually in apposition to the demonstrative touto)</li>
+</ul>
+<ul class="org-ul">
+<li>Epexegetical (explains, clarifies or completes a previous word or phrase)</li>
+<li>Causal (Adverbial) [because]</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org9d6c81c" class="outline-3">
+<h3 id="org9d6c81c">10.2	Subjunctive Mood (Represents the verbal action (or state) as uncertain but probable)</h3>
+<div class="outline-text-3" id="text-org9d6c81c">
+</div><div id="outline-container-orga6396d3" class="outline-4">
+<h4 id="orga6396d3">10.2.1	In Independent Clauses</h4>
+<div class="outline-text-4" id="text-orga6396d3">
+<ul class="org-ul">
+<li>Hortatory Subjunctive [let us]
+<ul class="org-ul">
+<li>Usually 1P. If 1S, there should be presence of ἄφες (permit) or δεῦρο (come) preceding the subjunctive.</li>
+</ul></li>
+<li>Deliberative Subjunctive
+<ul class="org-ul">
+<li>Deliberative Real Subjunctive (cognitive)
+<ul class="org-ul">
+<li>Expects some kind of answer and is a genuine question. It asks the How? Whether?</li>
+</ul></li>
+<li>Deliberative Rhetorical Subjunctive (volitive)</li>
+<li>Expects no verbal response. Does not ask a question of fact, but of obligation.</li>
+</ul></li>
+<li>Emphatic Negation Subjunctive (οὐ μή + aor subj)</li>
+<li>Prohibitive Subjunctive (usually μή + aor subj) [do not]
+<ul class="org-ul">
+<li>Typically 2nd person. Force is imperative after μή.</li>
+</ul></li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-orgfee620e" class="outline-4">
+<h4 id="orgfee620e">10.2.2	In Dependent (Subordinate) Clauses</h4>
+<div class="outline-text-4" id="text-orgfee620e">
+<ul class="org-ul">
+<li>Subjunctive in Conditional sentences
+<ul class="org-ul">
+<li>Found in the protasis, presence of εαν.</li>
+</ul></li>
+<li>ἵνα + subjunctive
+<ul class="org-ul">
+<li>Purpose ἵνα Clause [in order that, to]
+<ul class="org-ul">
+<li>Focus on the intention of the action of the main verb, whether accomplished or not.</li>
+</ul></li>
+<li>Result ἵνα Clause [so that, with the result that]
+<ul class="org-ul">
+<li>Indicates a consequence of the verbal action that is not intended.</li>
+</ul></li>
+<li>Purpose-Result ἵνα Clause [in order that]
+<ul class="org-ul">
+<li>Indicates both the intention and its sure accomplishment.</li>
+</ul></li>
+<li>Substantival ἵνα Clause
+<ul class="org-ul">
+<li>Subject Clause</li>
+<li>Predicate Nominative Clause</li>
+<li>Direct Object Clause (gives the content of the main verb)</li>
+<li>Apposition Clause [namely, that]</li>
+</ul></li>
+<li>Epexegetical ἵνα Clause. Used after noun or adj to clarify that noun or adj.</li>
+<li>Complementary ἵνα (completes the meaning of a helping verb, force of purpose, θέλω, δύναμαι)</li>
+<li>Imperatival ἵνα (force of a command)</li>
+</ul></li>
+<li>Subjunctive with Verbs of Fearing, Warning, Watching out for</li>
+<li>Subjunctive in Indirect Questions</li>
+<li>Subjunctive in Indefinite Relative Clause (usually after ὅστις  (ἄν/ἐαν) or ὅς [δ’] ἄν)</li>
+<li>Subjunctive in Indefinite Temporal Clause (usually after ἕως, ἄχρι, μέχρι, ὅταν)</li>
+</ul>
+</div>
+</div>
+</div>
+<div id="outline-container-org4c7d665" class="outline-3">
+<h3 id="org4c7d665">10.3	Optative Mood (Portray an action as possible)</h3>
+<div class="outline-text-3" id="text-org4c7d665">
+<ul class="org-ul">
+<li>Voluntative Optative (express obtainable wish or prayer. an appeal to the will) eg μὴ γένοιτο</li>
+<li>Oblique Optative (in indirect questions after a secondary tense), e.g. εἴη</li>
+<li>Potential Optative</li>
+<li>Conditional Optative</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orgc43cb50" class="outline-3">
+<h3 id="orgc43cb50">10.4	Imperative Mood</h3>
+<div class="outline-text-3" id="text-orgc43cb50">
+<ul class="org-ul">
+<li>Command (from a superior to an inferior)
+<ul class="org-ul">
+<li>aorist = command the action as a whole; present = command the action as an ongoing process.</li>
+</ul></li>
+<li>Prohibition (with μή)</li>
+<li>Request (speaker is addressing a superior)</li>
+<li>Permissive Imperative</li>
+<li>Conditional Imperative (usually imperative + καί + future ind; idea is "If X, then Y will happen")</li>
+<li>Potential Imperative</li>
+<li>Pronouncement Imperative</li>
+</ul>
+</div>
+</div>
+</div>
+<div id="outline-container-org2ddf8d5" class="outline-2">
+<h2 id="org2ddf8d5">Tenses</h2>
+<div class="outline-text-2" id="text-org2ddf8d5">
+<ul class="org-ul">
+<li>Time is absolute in the indicative, relative in the participle, and nonexistent in the other moods. Internal (or progressive) - present, imperfect; External (or Summary) - aorist, future; Perfective-Stative - perfect, pluperfect. Aspect is the basic defn of a tense while Aktionsart deals with the various categories of usage.</li>
+</ul>
+</div>
+<div id="outline-container-org4a19c88" class="outline-3">
+<h3 id="org4a19c88">11.1	Present</h3>
+<div class="outline-text-3" id="text-org4a19c88">
+<ul class="org-ul">
+<li>Aspect: Internal without regard for beginning or end, progressive.</li>
+<li>Time: Usually present time.</li>
+
+<li>Narrow Band (action portrayed occurs over a short time) 
+<ul class="org-ul">
+<li>Instantaneous Present (Aoristic or Punctiliar Present)</li>
+</ul></li>
+</ul>
+<p>
+Action is completed at the moment of speaking. Indicative only. 
+</p>
+<ul class="org-ul">
+<li>Progressive Present [at this present time, right now]</li>
+</ul>
+<p>
+Describing a scene in progress, usually in narrative lit. Diff between this and customary or iterative present is that this is continuous action, not repeated action.
+</p>
+<ul class="org-ul">
+<li>Broad Band (action portrayed occurs over a longer interval) 
+<ul class="org-ul">
+<li>Extending-From-Past Present (Present of Past Action Still In Progress)</li>
+</ul></li>
+</ul>
+<p>
+Diff from perfect tense as perfect speaks only about results existing in the present time. 
+</p>
+<ul class="org-ul">
+<li>Iterative Present [repeatedly, continuously]</li>
+</ul>
+<p>
+Describe an event that repeatedly happens. Usually in imperative mood. 
+</p>
+<ul class="org-ul">
+<li>Customary (Habitual or General) Present [customarily, habitually, continually]</li>
+</ul>
+<p>
+To signal either an action that regularly occurs or an ongoing state. 
+</p>
+<ul class="org-ul">
+<li>Gnomic Present</li>
+</ul>
+<p>
+Used to make a statement of a general, timeless fact; in proverbial statements or general maxims about what occurs at all times. Semantic situations (1) depict deity or nature (2) generic statements.
+</p>
+<ul class="org-ul">
+<li>Special Uses 
+<ul class="org-ul">
+<li>Historical Present (Dramatic Present)</li>
+</ul></li>
+</ul>
+<p>
+To portray an event vividly. Usually, aspectual value is 0. λέγει, λέγουσιν. 
+</p>
+<ul class="org-ul">
+<li>Perfective Present</li>
+<li>Conative (Tendential, Voluntative) Present</li>
+<li>Futuristic Present</li>
+</ul>
+<p>
+Used to describe a future event, giving connotation of immediacy and certainty. Usually with verbs whose lexical nuance is anticipation, eg. ἔπχομαι, -βαίνω, προεύομαι 
+</p>
+<ul class="org-ul">
+<li>Completely Futuristic [is soon going to, is certainly going to, will]</li>
+</ul>
+<p>
+Describe an event that is wholly subsequent to the time of speaking
+</p>
+<ul class="org-ul">
+<li>Mostly Futuristic [is coming]</li>
+</ul>
+<p>
+Describe an event begun in the present time but completed in the future.
+</p>
+<ul class="org-ul">
+<li>Present Retained in Indirect Discourse</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orgd5f654f" class="outline-3">
+<h3 id="orgd5f654f">11.2	Imperfect</h3>
+<div class="outline-text-3" id="text-orgd5f654f">
+<p>
+Aspect: Internal; Time: Past 
+</p>
+<ul class="org-ul">
+<li>Narrow-Band 
+<ul class="org-ul">
+<li>Instantaneous Imperfect (restricted to ἔλεγεν in narrative lit)</li>
+<li>Progressive Imperfect [was (continually) doing, was (right then) happening]</li>
+<li>Ingressive (Inceptive) Imperfect [began doing]</li>
+</ul></li>
+</ul>
+<p>
+Stress the beginning of an action, with the implication that it continued for some time. Usually in narrative when there's a change in activity, to signal a topic shift.
+</p>
+<ul class="org-ul">
+<li>Broad Band 
+<ul class="org-ul">
+<li>Iterative Imperfect [kept on doing, going]</li>
+</ul></li>
+</ul>
+<p>
+Repeated action in past time. 
+</p>
+<ul class="org-ul">
+<li>Customary (Habitual or General) Imperfect [customarily, habitually, continually]</li>
+</ul>
+<p>
+Regularly recurring activity in past time or a state that continue for some time.
+</p>
+<ul class="org-ul">
+<li>Special Use 
+<ul class="org-ul">
+<li>"Pluperfective" Imperfect</li>
+<li>Conative (Voluntative, Tendential) Imperfect : desired, attempted, tried to …</li>
+<li>Imperfect Retained in Indirect Discourse</li>
+</ul></li>
+</ul>
+<p>
+11.3	Aorist
+Aspect: External, snapshot; Time: Indicative = Past time wrt time of speaking. Participles = antecedent time to that of the main verb. 
+</p>
+<ul class="org-ul">
+<li>Constative (Punctiliar)</li>
+</ul>
+<p>
+Views action as a whole, taking no interest in the internal workings of the action. Place stress on the fact of the occurrence, not its nature. 
+</p>
+<ul class="org-ul">
+<li>Ingressive (Inceptive) [began to do, became]</li>
+</ul>
+<p>
+Stress the beginning of an action or the entrance into a state 
+</p>
+<ul class="org-ul">
+<li>Consummative (Culminative, Effective)</li>
+</ul>
+<p>
+Stress cessation of an act or state. 
+</p>
+<ul class="org-ul">
+<li>Gnomic</li>
+</ul>
+<p>
+Present a timeless, general fact 
+</p>
+<ul class="org-ul">
+<li>Epistolary</li>
+</ul>
+<p>
+Author self-consciously describes his letter from the time frame of the audience. 
+</p>
+<ul class="org-ul">
+<li>Proleptic (Futuristic)</li>
+</ul>
+<p>
+Describe an event that is not yet past as though it were already completed. Stresses the certainty of the event.
+</p>
+<ul class="org-ul">
+<li>Immediate Past/Dramatic [just now, previously]</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orge1567d4" class="outline-3">
+<h3 id="orge1567d4">11.4	Future</h3>
+<div class="outline-text-3" id="text-orge1567d4">
+<p>
+Aspect: External, summary; Time: Future from the speaker's presentation. 
+</p>
+<ul class="org-ul">
+<li>Predictive</li>
+</ul>
+<p>
+Indicate that something will take place or come to pass. 
+</p>
+<ul class="org-ul">
+<li>Imperatival</li>
+</ul>
+<p>
+Fut Indicative is sometimes used for a command, having a universal, timeless and/or solemn force to it. 
+</p>
+<ul class="org-ul">
+<li>Deliberative</li>
+</ul>
+<p>
+Asks a question that implies some doubt about the response. 
+</p>
+<ul class="org-ul">
+<li>Gnomic</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orgb8a4fd4" class="outline-3">
+<h3 id="orgb8a4fd4">11.5	Perfect &amp; Pluperfect</h3>
+<div class="outline-text-3" id="text-orgb8a4fd4">
+<p>
+Aspect: Stative, resultative, completed. Action is presented externally, while resultant state is presented internally; Time: Future from the speaker's presentation. 
+</p>
+<ul class="org-ul">
+<li>Perfect</li>
+</ul>
+<p>
+Completed action with results existing in the present 
+</p>
+<ul class="org-ul">
+<li>Intensive (Resultative)</li>
+</ul>
+<p>
+Emphasize the result or present state produced by a past action. Translate with a present tense. Usually stative verbs belong here. 
+</p>
+<ul class="org-ul">
+<li>Extensive (Consummative)</li>
+</ul>
+<p>
+Emphasize the completed action of a past action or process from which a present state emerges. Perfects can be extensive or intensive, but transitive verbs often belong here. 
+</p>
+<ul class="org-ul">
+<li>Aoristic (Dramatic or Historical)</li>
+<li>Perfect with a Present Force</li>
+</ul>
+<p>
+Little diff between action and results. Eg οἶδα, ἕστηκα, πέποιθα 
+</p>
+<ul class="org-ul">
+<li>Gnomic</li>
+<li>Proleptic (Futuristic)</li>
+</ul>
+<p>
+Occurs in the apodosis of a conditional clause. 
+</p>
+<ul class="org-ul">
+<li>Perfect of Allegory</li>
+</ul>
+<ul class="org-ul">
+<li>Pluperfect</li>
+</ul>
+<p>
+Completed action with results existing in the past. The pluperfect combines the aspects of the aorist (for the event) and the imperfect (for the results). It makes no comment about the result existing up the time of speaking. 
+</p>
+<ul class="org-ul">
+<li>Intensive (Resultative)</li>
+<li>Extensive (Consummative)</li>
+<li>Pluperfect with a Simple Past Force</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-orgbe07271" class="outline-3">
+<h3 id="orgbe07271">Summary</h3>
+<div class="outline-text-3" id="text-orgbe07271">
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">Present</th>
+<th scope="col" class="org-left">Imperfect</th>
+<th scope="col" class="org-left">Aorist</th>
+<th scope="col" class="org-left">Future</th>
+<th scope="col" class="org-left">Perfect</th>
+<th scope="col" class="org-left">Pluperfect</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">Instantaneous</td>
+<td class="org-left">Instantaneous</td>
+<td class="org-left">Constative</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">Progressive</td>
+<td class="org-left">Progressive</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">Extend-from-past</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">Iterative</td>
+<td class="org-left">Iterative</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">Customary</td>
+<td class="org-left">Customary</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">Gnomic</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">Gnomic</td>
+<td class="org-left">Gnomic</td>
+<td class="org-left">Gnomic</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">Historical</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">Aoristic (Historical)</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">Perfective</td>
+<td class="org-left">Pluperfective</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">Intensive (Resultative)</td>
+<td class="org-left">Intensive (Resultative)</td>
+</tr>
+
+<tr>
+<td class="org-left">Conative</td>
+<td class="org-left">Conative</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">Futuristic</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">Proleptic</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">Proleptic</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">Indirect discourse</td>
+<td class="org-left">Indirect discourse</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">Ingressive</td>
+<td class="org-left">Ingressive</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">Epistolary</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">Dramatic</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">Consumative</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">Extensive (Consumative)</td>
+<td class="org-left">Extensive (Consumative)</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">Predictive</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">Imperatival</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">Deliberative</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">Subjunctive Equivalents</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">Present Force</td>
+<td class="org-left">Past Force</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">Allegory</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+
+
+<div id="outline-container-orgda87b5c" class="outline-2">
+<h2 id="orgda87b5c">Infinitive</h2>
+<div class="outline-text-2" id="text-orgda87b5c">
+<p>
+Indeclinable verbal noun. Neuter article before inf has no significance. 
+</p>
+</div>
+<div id="outline-container-org7650a92" class="outline-3">
+<h3 id="org7650a92">12.1	Semantic Categories</h3>
+<div class="outline-text-3" id="text-org7650a92">
+<ul class="org-ul">
+<li>Adverbial Uses
+<ul class="org-ul">
+<li>Purpose [to, in order to, for the purpose of]</li>
+<li>Result [so that, so as to, with the result that]</li>
+<li>Time 
+<ul class="org-ul">
+<li>Antecedent (μετὰ τό + inf) [after + finite verb] inf occurs before action of the controlling verb</li>
+</ul></li>
+</ul></li>
+</ul>
+<p>
+After the inf comes the verb. 
+</p>
+<ul class="org-ul">
+<li>Contemporaneous (ἐν τῷ + inf) [while + finite verb, as when &#x2026;] &#x2026; simultaneous &#x2026;</li>
+<li>Subsequent (πρὸ τοῦ, πρίν, πρὶν ἤ+ inf) [before + finite verb] &#x2026; after &#x2026;</li>
+</ul>
+<ul class="org-ul">
+<li>Cause [because]</li>
+<li>Means (ἐν τῷ + inf) [by + gerund, etc]</li>
+<li>Complementary</li>
+</ul>
+<p>
+Used with helper verbs, eg ἄπχομαι, βούλομαι, δύναμαι, ἐπιτρέπω, ζητέω, θέλω, μέλλω, ὀφείλω. Subject of inf is either nom or acc.
+</p>
+<ul class="org-ul">
+<li>Substantival Uses
+<ul class="org-ul">
+<li>Subject</li>
+</ul></li>
+</ul>
+<p>
+With impersonal verbs as δεῖ, ἔξεστιν, δοκεῖ 
+</p>
+<ul class="org-ul">
+<li>Direct Object</li>
+<li>Indirect Discourse</li>
+</ul>
+<p>
+After a verb of perception or communication. Inf of indirect discourse retains the tense of the direct discourse and usually represents either an imperative or indicative. 
+</p>
+<ul class="org-ul">
+<li>Appositional [namely]</li>
+</ul>
+<p>
+Apposition defines while epexegetical explains. Appositional can substitute for its antecedent but epexegetical can't. 
+</p>
+<ul class="org-ul">
+<li>Epexegetical</li>
+</ul>
+<p>
+Explains, clarifies, or qualifies a noun or adj. If an inf qualifies a verb, it should be a complementary inf.
+</p>
+<ul class="org-ul">
+<li>Independent Uses
+<ul class="org-ul">
+<li>Imperatival</li>
+<li>Absolute</li>
+</ul></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orgde76f6b" class="outline-3">
+<h3 id="orgde76f6b">12.2	Structural Categories</h3>
+<div class="outline-text-3" id="text-orgde76f6b">
+<ul class="org-ul">
+<li>Anarthrous
+<ul class="org-ul">
+<li>Simple Inf</li>
+</ul></li>
+</ul>
+<p>
+Purpose, Result, Complementary, Means (rare), Subject, Direct Obj, Indirect Discourse, Apposition, Epexegetical, Imperatival (rare), Absolute (rare) 
+</p>
+<ul class="org-ul">
+<li>πρίν ἤ + Inf. Subsequent time.</li>
+<li>ὡς + Inf. Purpose, Result.</li>
+<li>ὥστε + Inf. Purpose (rare), Result</li>
+</ul>
+<ul class="org-ul">
+<li>Articular
+<ul class="org-ul">
+<li>Without governing prepositions 
+<ul class="org-ul">
+<li>Nom Art Inf : Subject, Apposition (rare)</li>
+<li>Acc Art Inf : Direct Object, Apposition</li>
+<li>Gen Art Inf: Purpose, Result, Contemporaneous Time (rare), Cause (rare), Direct Object (dispute), Apposition, Epexegetical</li>
+</ul></li>
+<li>With Governing Preposition 
+<ul class="org-ul">
+<li>διὰ τό + inf : Cause, Contemporaneous Time (rare)</li>
+<li>εἰς + inf : Purpose, Result, Epexegetical (rare)</li>
+<li>ἐν τῷ + inf : Result (rare), Contemporaneous Time, Means</li>
+<li>μετὰ τό + inf : Antecedent time</li>
+<li>πρὸς τό + inf : Purpose, Result</li>
+</ul></li>
+</ul></li>
+</ul>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgd70e74b" class="outline-2">
+<h2 id="orgd70e74b">Participle</h2>
+<div class="outline-text-2" id="text-orgd70e74b">
+</div><div id="outline-container-orga45350f" class="outline-3">
+<h3 id="orga45350f">13.1	Adjectival</h3>
+<div class="outline-text-3" id="text-orga45350f">
+<p>
+If articular, = adjectival. If anarthrous, may be adjectival. 
+</p>
+<ul class="org-ul">
+<li>Adjectival Proper (Dependent)</li>
+</ul>
+<p>
+Attributive part. is common, predicate is rare. Translate attributive part. as a relative clause. 
+</p>
+<ul class="org-ul">
+<li>Substantival (Independent) [the one who/the thing which]</li>
+</ul>
+<p>
+The Inf. is abstract, speaking of the act or fact of doing. The participle is concrete, speaking of the person who or thing which does.
+</p>
+</div>
+</div>
+<div id="outline-container-orge8b6234" class="outline-3">
+<h3 id="orge8b6234">13.2	Verbal</h3>
+<div class="outline-text-3" id="text-orge8b6234">
+<ul class="org-ul">
+<li>Example of participles modifying infinitives
+<ul class="org-ul">
+<li>See BDF §410 “The case of adjuncts and predicates to the subject of the infinitive”, which states “Since the subject of the infinitive generally is, or is thought of as being, in the acc., it is natural that adjuncts and predicates going with the subject follow suit … participles as adjuncts may be in the dat. (or acc.) but not in the gen., for which the acc. is used”</li>
+<li>Examples
+<ul class="org-ul">
+<li>Luke 1:74 ἀφόβως ἐκ χειρὸς ἐχθρῶν ῥυσθέντας λατρεύειν αὐτῷ 
+<ul class="org-ul">
+<li>that we, being rescued from the hand of our enemies, may serve him without fear,</li>
+</ul></li>
+<li>2 Pet 2:21 κρεῖττον γὰρ ἦν αὐτοῖς μὴ ἐπεγνωκέναι τὴν ὁδὸν τῆς δικαιοσύνης ἢ ἐπιγνοῦσιν ὑποστρέψαι ἐκ τῆς παραδοθείσης αὐτοῖς ἁγίας ἐντολῆς 
+<ul class="org-ul">
+<li>For it would have been better for them never to have known the way of righteousness than, having known it, to turn back from the holy commandment that had been delivered to them.</li>
+</ul></li>
+<li>1 Pet 2:11–12 Ἀγαπητοί, παρακαλῶ ὡς παροίκους καὶ παρεπιδήμους ἀπέχεσθαι … 12 τὴν ἀναστροφὴν ὑμῶν ἐν τοῖς ἔθνεσιν ἔχοντες καλήν
+<ul class="org-ul">
+<li>Dear friends, I urge you as foreigners and exiles to keep away from fleshly desires that do battle against the soul, and maintain good conduct among the non-Christians</li>
+</ul></li>
+</ul></li>
+</ul></li>
+
+<li>Dependent Verbal 
+<ul class="org-ul">
+<li>Adverbial (or Circumstantial) [2M3C-RPT]
+<ul class="org-ul">
+<li>Temporal [after doing, while doing, before doing]</li>
+</ul></li>
+</ul></li>
+</ul>
+<p>
+When? 
+</p>
+<ul class="org-ul">
+<li>Aorist - Usually antecedent in time, but will be contemporaneous with aorist verb</li>
+<li>Present - Contemporaneous</li>
+<li>Perfect - Antecedent</li>
+<li>Future - Subsequent</li>
+</ul>
+<ul class="org-ul">
+<li>Manner [by + ptc of emotion or attitude]</li>
+</ul>
+<p>
+How? Adds color rather than explain or define (means) the verb. 
+</p>
+<ul class="org-ul">
+<li>Means [by means of]</li>
+</ul>
+<p>
+How? Could be epexegetical in defining, explaining action of the main verb. Usually Verb + Part. Used with vague, general, abstract or metaphorical finite verbs. 
+</p>
+<ul class="org-ul">
+<li>Cause [because]</li>
+</ul>
+<p>
+Why? Usually Part + Verb. Almost all perfect ptc. 
+</p>
+<ul class="org-ul">
+<li>Condition [if]</li>
+<li>Concession [although]</li>
+</ul>
+<p>
+State or action of the main verb is true in spite of the state or action of the participle. 
+</p>
+<ul class="org-ul">
+<li>Purpose</li>
+</ul>
+<p>
+Translate with inf or add "with the purpose of". Ptc + verb. Never perfect ptc, always future ptc, usually present ptc. 
+</p>
+<ul class="org-ul">
+<li>Result [with the result]</li>
+</ul>
+<p>
+Verb + Present part.
+</p>
+<ul class="org-ul">
+<li>Attendant Circumstance [Part (translated as finite verb) + "and" + main verb]</li>
+</ul>
+<p>
+5 things must occur (1) Aor part, (2) Aor main verb, (3) Imp or Ind main verb (4) Part + Verb in word order and time of event (5) Usually only in narrative lit. 
+</p>
+<ul class="org-ul">
+<li>Indirect Discourse</li>
+<li>Complementary</li>
+<li>Periphrastic</li>
+</ul>
+<p>
+Verb of being + Anarthrous part (usually present or perfect) to form a finite verbal idea. 
+</p>
+<ul class="org-ul">
+<li>Present Verb + Present Part = Present Tense</li>
+<li>Imperfect Verb + Present Part = Imperfect Tense</li>
+<li>Future Verb + Present Part = Future Tense</li>
+<li>Present Verb + Perfect Part = Perfect Tense</li>
+<li>Imperfect Verb + Perfect Part = Pluperfect Tense</li>
+</ul>
+<ul class="org-ul">
+<li>Redundant (Pleonastic)</li>
+</ul>
+<ul class="org-ul">
+<li>Independent Verbal 
+<ul class="org-ul">
+<li>As an Imperative (Imperatival)</li>
+<li>As an Indicative (Independent Proper or Absolute)</li>
+</ul></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orgdc75ec7" class="outline-3">
+<h3 id="orgdc75ec7">13.3	Participle Absolute</h3>
+<div class="outline-text-3" id="text-orgdc75ec7">
+<ul class="org-ul">
+<li>Nominative Absolute</li>
+<li>Genitive Absolute 
+<ul class="org-ul">
+<li>Structure
+<ul class="org-ul">
+<li>Noun or pronoun in gen  - usually</li>
+<li>gen anarthrous part - always</li>
+<li>entire construction at the front of a sentence - usually.</li>
+</ul></li>
+<li>Semantic
+<ul class="org-ul">
+<li>The subject (gen noun) is different from the subj of main clause.</li>
+<li>Participle is always adverbial,</li>
+<li>usually temporal.</li>
+</ul></li>
+</ul></li>
+</ul>
+</div>
+</div>
+</div>
+<div id="outline-container-org5f605cc" class="outline-2">
+<h2 id="org5f605cc">Conditional Clauses</h2>
+<div class="outline-text-2" id="text-org5f605cc">
+</div><div id="outline-container-org78db4aa" class="outline-3">
+<h3 id="org78db4aa">14.1	1st Class (Assumed True for Argument's Sake)</h3>
+<div class="outline-text-3" id="text-org78db4aa">
+<ul class="org-ul">
+<li>εἰ + ind mood, any tense (-ve οὐ); any mood, any tense</li>
+<li>Translate: “If-and let us assume that this is true for the sake of argument, then &#x2026;”</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org9dec6e8" class="outline-3">
+<h3 id="org9dec6e8">14.2	2nd Class (Contrary to Fact)</h3>
+<div class="outline-text-3" id="text-org9dec6e8">
+<ul class="org-ul">
+<li>εἰ + ind past (aor, imp) tense (-ve μή); [ἄν] + ind past tense (aor - past time, imp - present time)</li>
+<li>Assumption of an untruth for the sake of argument.</li>
+<li>E.g. Translate: “If you believed in Moses (but you did not), then …”</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orgdec9a47" class="outline-3">
+<h3 id="orgdec9a47">14.3	3rd Class (Uncertain but still likely)</h3>
+<div class="outline-text-3" id="text-orgdec9a47">
+<ul class="org-ul">
+<li>ἐάν subj mood, any tense  (-ve μήv); any mood, any tense 
+<ul class="org-ul">
+<li>A logical connection (if A, then B) in the present time</li>
+<li>A hypothetical situation or one that probably won't be fulfilled</li>
+<li>A more probable future occurrence.</li>
+</ul></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org77a1338" class="outline-3">
+<h3 id="org77a1338">14.4	4th Class (Less probable future)</h3>
+<div class="outline-text-3" id="text-org77a1338">
+<ul class="org-ul">
+<li>εἰ + opt mood, present or aor; ἄν + opt mood, present or aor</li>
+<li>Indicates a possible condition in the future, usually a remote possibility.</li>
+</ul>
+</div>
+</div>
+</div>
+<div id="outline-container-org171a2e7" class="outline-2">
+<h2 id="org171a2e7">Volitionals</h2>
+<div class="outline-text-2" id="text-org171a2e7">
+</div><div id="outline-container-orgfd9f2df" class="outline-3">
+<h3 id="orgfd9f2df">15.1	Recent proposals for understanding tenses in volitionals</h3>
+<div class="outline-text-3" id="text-orgfd9f2df">
+<ul class="org-ul">
+<li>See Moo, Romans, 382 n.154.</li>
+<li>Porter, Verbal Aspects, 351–52
+<ul class="org-ul">
+<li>“Aorist tense is used when the author chooses to view the command as a whole, while the present tense, being “more heavily marked,” is used “to specify” the command, treating it as in progress or (in prohibitions) to deny that it is in progress.</li>
+</ul></li>
+<li>McKay, “Time and Aspect in New Testament Greek,” NovT 34 (1992): 209–28.
+<ul class="org-ul">
+<li>“The aorist ‘urges an activity as a whole action’ while the present (the ‘imperfective’) ‘urges it as an ongoing process.” He also thinks that μή with the present imperative often prohibits an activity in progress.</li>
+</ul></li>
+<li>Fanning, Verbal Aspects, 326–32.
+<ul class="org-ul">
+<li>Distinguishes between “specific” and “general” commands, the aorist usually used for the former and the present for the latter. In prohibitions, the present tense can signify that an action in progress is to cease, but it can also mean “make it your practice not to do.”
+<ul class="org-ul">
+<li>{This sounds to be wrong to be me} Double check.</li>
+</ul></li>
+</ul></li>
+<li>Summary
+<ul class="org-ul">
+<li>The lack of agreement suggests that one must use caution. None of the above schemes seems able with any degree of comprehensiveness to account for Paul’s use of the tenses in commands.</li>
+<li>Negatively, Porter’s suggestion that the present often carries emphasis does not seem to work very often; and his suggestion that in this text (Rom 6:12) the present prohibitions in vv. 12 and 13a are emphatic while the positive command in v. 13b assumes what the Romans already know (Verbal Aspect, 357) turns the natural flow of the text on its head.  But there does seem to be some reason to think that Paul often uses the present to connote durative action.</li>
+</ul></li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="date">Created: 2018-09-25 Tue 20:53</p>
+<p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
+</div>
+</body>
+</html>
