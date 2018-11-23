@@ -1,1948 +1,1095 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
-"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<!DOCTYPE html>
+<html lang="en">
 <head>
-<!-- 2018-09-25 Tue 20:53 -->
-<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Summary of Wallace</title>
-<meta name="generator" content="Org mode" />
+<meta charset="utf-8"/>
+<title>Gal: Introduction</title>
 <style type="text/css">
- <!--/*--><![CDATA[/*><!--*/
-  .title  { text-align: center;
-             margin-bottom: .2em; }
-  .subtitle { text-align: center;
-              font-size: medium;
-              font-weight: bold;
-              margin-top:0; }
-  .todo   { font-family: monospace; color: red; }
-  .done   { font-family: monospace; color: green; }
-  .priority { font-family: monospace; color: orange; }
-  .tag    { background-color: #eee; font-family: monospace;
-            padding: 2px; font-size: 80%; font-weight: normal; }
-  .timestamp { color: #bebebe; }
-  .timestamp-kwd { color: #5f9ea0; }
-  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
-  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
-  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
-  .underline { text-decoration: underline; }
-  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
-  p.verse { margin-left: 3%; }
-  pre {
-    border: 1px solid #ccc;
-    box-shadow: 3px 3px 3px #eee;
-    padding: 8pt;
-    font-family: monospace;
-    overflow: auto;
-    margin: 1.2em;
-  }
-  pre.src {
-    position: relative;
-    overflow: visible;
-    padding-top: 1.2em;
-  }
-  pre.src:before {
-    display: none;
-    position: absolute;
-    background-color: white;
-    top: -10px;
-    right: 10px;
-    padding: 3px;
-    border: 1px solid black;
-  }
-  pre.src:hover:before { display: inline;}
-  /* Languages per Org manual */
-  pre.src-asymptote:before { content: 'Asymptote'; }
-  pre.src-awk:before { content: 'Awk'; }
-  pre.src-C:before { content: 'C'; }
-  /* pre.src-C++ doesn't work in CSS */
-  pre.src-clojure:before { content: 'Clojure'; }
-  pre.src-css:before { content: 'CSS'; }
-  pre.src-D:before { content: 'D'; }
-  pre.src-ditaa:before { content: 'ditaa'; }
-  pre.src-dot:before { content: 'Graphviz'; }
-  pre.src-calc:before { content: 'Emacs Calc'; }
-  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
-  pre.src-fortran:before { content: 'Fortran'; }
-  pre.src-gnuplot:before { content: 'gnuplot'; }
-  pre.src-haskell:before { content: 'Haskell'; }
-  pre.src-java:before { content: 'Java'; }
-  pre.src-js:before { content: 'Javascript'; }
-  pre.src-latex:before { content: 'LaTeX'; }
-  pre.src-ledger:before { content: 'Ledger'; }
-  pre.src-lisp:before { content: 'Lisp'; }
-  pre.src-lilypond:before { content: 'Lilypond'; }
-  pre.src-lua:before { content: 'Lua'; }
-  pre.src-matlab:before { content: 'MATLAB'; }
-  pre.src-mscgen:before { content: 'Mscgen'; }
-  pre.src-ocaml:before { content: 'Objective Caml'; }
-  pre.src-octave:before { content: 'Octave'; }
-  pre.src-org:before { content: 'Org mode'; }
-  pre.src-oz:before { content: 'OZ'; }
-  pre.src-plantuml:before { content: 'Plantuml'; }
-  pre.src-processing:before { content: 'Processing.js'; }
-  pre.src-python:before { content: 'Python'; }
-  pre.src-R:before { content: 'R'; }
-  pre.src-ruby:before { content: 'Ruby'; }
-  pre.src-sass:before { content: 'Sass'; }
-  pre.src-scheme:before { content: 'Scheme'; }
-  pre.src-screen:before { content: 'Gnu Screen'; }
-  pre.src-sed:before { content: 'Sed'; }
-  pre.src-sh:before { content: 'shell'; }
-  pre.src-sql:before { content: 'SQL'; }
-  pre.src-sqlite:before { content: 'SQLite'; }
-  /* additional languages in org.el's org-babel-load-languages alist */
-  pre.src-forth:before { content: 'Forth'; }
-  pre.src-io:before { content: 'IO'; }
-  pre.src-J:before { content: 'J'; }
-  pre.src-makefile:before { content: 'Makefile'; }
-  pre.src-maxima:before { content: 'Maxima'; }
-  pre.src-perl:before { content: 'Perl'; }
-  pre.src-picolisp:before { content: 'Pico Lisp'; }
-  pre.src-scala:before { content: 'Scala'; }
-  pre.src-shell:before { content: 'Shell Script'; }
-  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
-  /* additional language identifiers per "defun org-babel-execute"
-       in ob-*.el */
-  pre.src-cpp:before  { content: 'C++'; }
-  pre.src-abc:before  { content: 'ABC'; }
-  pre.src-coq:before  { content: 'Coq'; }
-  pre.src-groovy:before  { content: 'Groovy'; }
-  /* additional language identifiers from org-babel-shell-names in
-     ob-shell.el: ob-shell is the only babel language using a lambda to put
-     the execution function name together. */
-  pre.src-bash:before  { content: 'bash'; }
-  pre.src-csh:before  { content: 'csh'; }
-  pre.src-ash:before  { content: 'ash'; }
-  pre.src-dash:before  { content: 'dash'; }
-  pre.src-ksh:before  { content: 'ksh'; }
-  pre.src-mksh:before  { content: 'mksh'; }
-  pre.src-posh:before  { content: 'posh'; }
-  /* Additional Emacs modes also supported by the LaTeX listings package */
-  pre.src-ada:before { content: 'Ada'; }
-  pre.src-asm:before { content: 'Assembler'; }
-  pre.src-caml:before { content: 'Caml'; }
-  pre.src-delphi:before { content: 'Delphi'; }
-  pre.src-html:before { content: 'HTML'; }
-  pre.src-idl:before { content: 'IDL'; }
-  pre.src-mercury:before { content: 'Mercury'; }
-  pre.src-metapost:before { content: 'MetaPost'; }
-  pre.src-modula-2:before { content: 'Modula-2'; }
-  pre.src-pascal:before { content: 'Pascal'; }
-  pre.src-ps:before { content: 'PostScript'; }
-  pre.src-prolog:before { content: 'Prolog'; }
-  pre.src-simula:before { content: 'Simula'; }
-  pre.src-tcl:before { content: 'tcl'; }
-  pre.src-tex:before { content: 'TeX'; }
-  pre.src-plain-tex:before { content: 'Plain TeX'; }
-  pre.src-verilog:before { content: 'Verilog'; }
-  pre.src-vhdl:before { content: 'VHDL'; }
-  pre.src-xml:before { content: 'XML'; }
-  pre.src-nxml:before { content: 'XML'; }
-  /* add a generic configuration mode; LaTeX export needs an additional
-     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
-  pre.src-conf:before { content: 'Configuration File'; }
-
-  table { border-collapse:collapse; }
-  caption.t-above { caption-side: top; }
-  caption.t-bottom { caption-side: bottom; }
-  td, th { vertical-align:top;  }
-  th.org-right  { text-align: center;  }
-  th.org-left   { text-align: center;   }
-  th.org-center { text-align: center; }
-  td.org-right  { text-align: right;  }
-  td.org-left   { text-align: left;   }
-  td.org-center { text-align: center; }
-  dt { font-weight: bold; }
-  .footpara { display: inline; }
-  .footdef  { margin-bottom: 1em; }
-  .figure { padding: 1em; }
-  .figure p { text-align: center; }
-  .inlinetask {
-    padding: 10px;
-    border: 2px solid gray;
-    margin: 10px;
-    background: #ffffcc;
-  }
-  #org-div-home-and-up
-   { text-align: right; font-size: 70%; white-space: nowrap; }
-  textarea { overflow-x: auto; }
-  .linenr { font-size: smaller }
-  .code-highlighted { background-color: #ffff00; }
-  .org-info-js_info-navigation { border-style: none; }
-  #org-info-js_console-label
-    { font-size: 10px; font-weight: bold; white-space: nowrap; }
-  .org-info-js_search-highlight
-    { background-color: #ffff00; color: #000000; font-weight: bold; }
-  .org-svg { width: 90%; }
-  /*]]>*/-->
+.underline { text-decoration: underline; }
 </style>
-<link rel="stylesheet" type="text/css" href="http://www.pirilampo.org/styles/bigblow/css/htmlize.css"/>
-<link rel="stylesheet" type="text/css" href="C:/users/user/.emacs.d/org-html-themes-lau/styles/bigblow/css/bigblow.css"/>
-<link rel="stylesheet" type="text/css" href="http://www.pirilampo.org/styles/bigblow/css/hideshow.css"/>
-<script type="text/javascript" src="http://www.pirilampo.org/styles/bigblow/js/jquery-1.11.0.min.js"></script>
-<script type="text/javascript" src="http://www.pirilampo.org/styles/bigblow/js/jquery-ui-1.10.2.min.js"></script>
-<script type="text/javascript" src="http://www.pirilampo.org/styles/bigblow/js/jquery.localscroll-min.js"></script>
-<script type="text/javascript" src="http://www.pirilampo.org/styles/bigblow/js/jquery.scrollTo-1.4.3.1-min.js"></script>
-<script type="text/javascript" src="http://www.pirilampo.org/styles/bigblow/js/jquery.zclip.min.js"></script>
-<script type="text/javascript" src="http://www.pirilampo.org/styles/bigblow/js/bigblow.js"></script>
-<script type="text/javascript" src="http://www.pirilampo.org/styles/bigblow/js/hideshow.js"></script>
-<script type="text/javascript" src="http://www.pirilampo.org/styles/lib/js/jquery.stickytableheaders.min.js"></script>
-<script type="text/javascript">
-/*
-@licstart  The following is the entire license notice for the
-JavaScript code in this tag.
+<link rel="stylesheet" href="file:///C:/Users/user/Downloads/emacs/reveal.js-master/reveal.js-master/css/reveal.css"/>
 
-Copyright (C) 2012-2017 Free Software Foundation, Inc.
+<link rel="stylesheet" href="file:///C:/Users/user/Downloads/emacs/reveal.js-master/reveal.js-master/css/theme/beige.css" id="theme"/>
 
-The JavaScript code in this tag is free software: you can
-redistribute it and/or modify it under the terms of the GNU
-General Public License (GNU GPL) as published by the Free Software
-Foundation, either version 3 of the License, or (at your option)
-any later version.  The code is distributed WITHOUT ANY WARRANTY;
-without even the implied warranty of MERCHANTABILITY or FITNESS
-FOR A PARTICULAR PURPOSE.  See the GNU GPL for more details.
+<link rel="stylesheet" href="file:///C:/Users/user/Documents/Dropbox/org/local.css"/>
 
-As additional permission under GNU GPL version 3 section 7, you
-may distribute non-source (e.g., minimized or compacted) forms of
-that code without the copy of the GNU GPL normally required by
-section 4, provided you include this license notice and a URL
-through which recipients can access the Corresponding Source.
-
-
-@licend  The above is the entire license notice
-for the JavaScript code in this tag.
-*/
-<!--/*--><![CDATA[/*><!--*/
- function CodeHighlightOn(elem, id)
- {
-   var target = document.getElementById(id);
-   if(null != target) {
-     elem.cacheClassElem = elem.className;
-     elem.cacheClassTarget = target.className;
-     target.className = "code-highlighted";
-     elem.className   = "code-highlighted";
-   }
- }
- function CodeHighlightOff(elem, id)
- {
-   var target = document.getElementById(id);
-   if(elem.cacheClassElem)
-     elem.className = elem.cacheClassElem;
-   if(elem.cacheClassTarget)
-     target.className = elem.cacheClassTarget;
- }
-/*]]>*///-->
+<!-- If the query includes 'print-pdf', include the PDF print sheet -->
+<script>
+    if( window.location.search.match( /print-pdf/gi ) ) {
+        var link = document.createElement( 'link' );
+        link.rel = 'stylesheet';
+        link.type = 'text/css';
+        link.href = 'file:///C:/Users/user/Downloads/emacs/reveal.js-master/reveal.js-master/css/print/pdf.css';
+        document.getElementsByTagName( 'head' )[0].appendChild( link );
+    }
 </script>
 </head>
 <body>
-<div id="content">
-<h1 class="title">Summary of Wallace</h1>
-
-<div id="outline-container-org1c2d866" class="outline-2">
-<h2 id="org1c2d866">Nouns</h2>
-<div class="outline-text-2" id="text-org1c2d866">
-</div><div id="outline-container-orgaf10206" class="outline-3">
-<h3 id="orgaf10206">Nominative Case</h3>
-<div class="outline-text-3" id="text-orgaf10206">
-</div><div id="outline-container-org3a1f0b6" class="outline-4">
-<h4 id="org3a1f0b6">Primary Uses of the Nominative</h4>
-<div class="outline-text-4" id="text-org3a1f0b6">
-<ul class="org-ul">
-<li><b>Subject</b></li>
-<li><b>Predicate Nominative</b>
-<ul class="org-ul">
-<li>Joined by an equative verb. S-PN Rule. 
-<ul class="org-ul">
-<li><i>Subset proposition</i>. When only 1 nom. substantive has the following grammatical tag, the subject is (1) pronoun (2) articular (3) proper name.</li>
-<li><i>Convertible proposition</i>. When both nouns have the grammatical tag, the priority for S is (1) pronoun (2) articular and proper name have same priority. Use word order.</li>
-<li>Substitution for PN (εἰς + acc). With γίνομαι, εἰμί (future tense), λογίζομαι.</li>
-</ul></li>
-</ul></li>
-<li><b>Nominative in Simple Apposition</b></li>
+<div class="reveal">
+<div class="slides">
+<section id="sec-title-slide"><h1 class="title">Gal: Introduction</h1>
+</section>
+<section id="table-of-contents">
+<div id="table-of-contents">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents">
+<ul>
+<li><a href="#/slide-org0ebce0b">Destination</a></li>
+<li><a href="#/slide-org8880a1b">Date</a></li>
+<li><a href="#/slide-orged0b9d8">Romans and Galatians</a></li>
+<li><a href="#/slide-org27aeaea">Audience</a></li>
+<li><a href="#/slide-org364c0d7">Agitators</a></li>
+<li><a href="#/slide-orgebee139">Occasion</a></li>
+<li><a href="#/slide-orgf28e4d2">Summary</a></li>
 </ul>
 </div>
 </div>
-<div id="outline-container-org0560ed2" class="outline-4">
-<h4 id="org0560ed2">Grammatically Independent Uses of the Nominative</h4>
-<div class="outline-text-4" id="text-org0560ed2">
-<ul class="org-ul">
-<li><b>Nominative Absolute</b></li>
-<li><b>Pendent Nominative</b>
-<ul class="org-ul">
-<li>Nominative is logical subject at beginning of sentence, but replaced by a pronoun in the required case by the syntax in the following sentence.</li>
-</ul></li>
-<li><b>Parenthetic Nominative</b> (subj of an explanatory clause within another clause)</li>
-<li>Nominative in Proverbial Expressions</li>
-<li><b>Nominative for Vocative</b></li>
-<li>Nominative of Exclamation</li>
-</ul>
-</div>
-</div>
-<div id="outline-container-org58be4ce" class="outline-4">
-<h4 id="org58be4ce">Nominatives in Places of Oblique Cases</h4>
-<div class="outline-text-4" id="text-org58be4ce">
-<ul class="org-ul">
-<li>Nominative of Appellation (nominative is <i>treated</i> as a proper name)</li>
-<li>Nominative of Apposition to Oblique Cases</li>
-</ul>
-</div>
-</div>
-</div>
-<div id="outline-container-orgaffe8f5" class="outline-3">
-<h3 id="orgaffe8f5">Vocative Case</h3>
-<div class="outline-text-3" id="text-orgaffe8f5">
-</div><div id="outline-container-org831e87f" class="outline-4">
-<h4 id="org831e87f">Direct Address</h4>
-<div class="outline-text-4" id="text-org831e87f">
-<ul class="org-ul">
-<li><b>Simple Address</b> (use without ὦ preceding it)</li>
-<li>Emphatic (or, Emotional Address) (use with ὦ preceding it)</li>
-<li>The Exceptional Usages in Acts</li>
-<li>Simplification</li>
-</ul>
-</div>
-</div>
-<div id="outline-container-orgcf6f15c" class="outline-4">
-<h4 id="orgcf6f15c">Exclamation</h4>
-</div>
-<div id="outline-container-orgff991d2" class="outline-4">
-<h4 id="orgff991d2">Apposition (the whole vocation construction is emphatic/emotional address)</h4>
-</div>
-</div>
-<div id="outline-container-org67b531c" class="outline-3">
-<h3 id="org67b531c">Genitive Case</h3>
-<div class="outline-text-3" id="text-org67b531c">
-<p>
-Main force is adjectival while dative is adverbial 
-</p>
-</div>
-<div id="outline-container-orgfa22556" class="outline-4">
-<h4 id="orgfa22556">Adjectival Genitive</h4>
-<div class="outline-text-4" id="text-orgfa22556">
-<ul class="org-ul">
-<li>Descriptive Genitive [characterized by, described by]</li>
-<li><b>Possessive Genitive</b> [belonging to, possessed by]
-<ul class="org-ul">
-<li>Possessive pronouns typically used. Head noun (N) is something that can be possessed (e.g. entities, not abstract ideas) by Ng.</li>
-</ul></li>
-<li><b>Genitive of Relationship</b> (familial relationship)</li>
-<li><b>Partitive Genitive</b> ("Wholative") [which is a part of]
-<ul class="org-ul">
-<li>Opp to gen of apposition.</li>
-</ul></li>
-<li><b>Attributive Genitive</b> (Hebrew Genitive; Genitive of Quality; N-Ng = Adj(Ng)-N)</li>
-<li>Attributed Genitive (N-Ng = Adj(N)-Ng)</li>
-<li>Genitive of Material [made out of, consisting of]</li>
-<li>Genitive of Content [full of, containing]</li>
-<li><b>Genitive in Simple Apposition</b>
-<ul class="org-ul">
-<li>Gen of Simple App (equative); Gen of App is subset (noun(gen of app))</li>
-</ul></li>
-<li><b>Genitive of Apposition</b> [which is, who is]
-<ul class="org-ul">
-<li>The head noun (1) states a large category, (2) will be ambiguous, (3) metaphorical.</li>
-</ul></li>
-<li>Genitive of Destination (aka Destination or Purpose) [destined for, toward]</li>
-<li>Predicate Genitive
-<ul class="org-ul">
-<li>Emphatic kind of simple apposition where the equative verb is a genitive participle.</li>
-</ul></li>
-<li>Genitive of Subordination [over]</li>
-<li>Genitive of Production/Producer [produced by]</li>
-<li>Genitive of Product [which produces]</li>
-</ul>
-</div>
-</div>
-<div id="outline-container-orge08187e" class="outline-4">
-<h4 id="orge08187e">Ablatival Genitive</h4>
-<div class="outline-text-4" id="text-orge08187e">
-<ul class="org-ul">
-<li>Genitive of Separation [out of, away from, from]</li>
-<li>Genitive of Source (or Origin) [out of, derived from, dependent on]</li>
-<li><b>Genitive of Comparison</b> [than]
-<ul class="org-ul">
-<li>After a comparative adj.</li>
-</ul></li>
-</ul>
-</div>
-</div>
-<div id="outline-container-org125dfb4" class="outline-4">
-<h4 id="org125dfb4">Verbal Genitive (i.e., Genitive Related to a Verbal Noun)</h4>
-<div class="outline-text-4" id="text-org125dfb4">
-<ul class="org-ul">
-<li><b>Subjective Genitive</b> (subj of verbal idea implicit in head noun)</li>
-<li><b>Objective Genitive</b> (direct obj of verbal idea implicit in head noun)</li>
-<li>Plenary Genitive (gen noun is both subj and obj)</li>
-</ul>
-</div>
-</div>
-<div id="outline-container-org94e5044" class="outline-4">
-<h4 id="org94e5044">Adverbial Genitive</h4>
-<div class="outline-text-4" id="text-org94e5044">
-<p>
-Use of genitive similar in force to an adverb, therefore related to a verb or adj. 
-</p>
-<ul class="org-ul">
-<li>Genitive of Price or Value or Quantity [for]</li>
-<li><b>Genitive of Time</b> [within which or during which]
-<ul class="org-ul">
-<li>Indicates kind of time or time during which the word to which it stands related to takes place.</li>
-</ul></li>
-<li>Genitive of Place [where or within which]</li>
-<li>Genitive of Means [by]</li>
-<li>Genitive of Agency (personal agent by which action in view is accomplished) [by]</li>
-<li><b>Genitive Absolute</b></li>
-<li>Genitive of Reference [with reference to]</li>
-<li>Genitive of Association [with, in association with]
-<ul class="org-ul">
-<li>Head noun is usually prefixed with συν-</li>
-</ul></li>
-</ul>
-</div>
-</div>
-<div id="outline-container-orgc41e77f" class="outline-4">
-<h4 id="orgc41e77f">After Certain Words</h4>
-<div class="outline-text-4" id="text-orgc41e77f">
-<ul class="org-ul">
-<li><b>Genitive after Certain Verbs</b> (as Direct Objects)</li>
-<li>Genitive after Certain Adjectives (and Adverbs)</li>
-<li>Genitive after Certain Nouns</li>
-<li><b>Genitive after Certain Prepositions</b></li>
-</ul>
-</div>
-</div>
-</div>
-<div id="outline-container-org15a41cf" class="outline-3">
-<h3 id="org15a41cf">Dative Case</h3>
-<div class="outline-text-3" id="text-org15a41cf">
-</div><div id="outline-container-orgfc43dd6" class="outline-4">
-<h4 id="orgfc43dd6">Pure Dative Uses</h4>
-<div class="outline-text-4" id="text-orgfc43dd6">
-<ul class="org-ul">
-<li><b>Dative Indirect Object</b> [to, for]
-<ul class="org-ul">
-<li>Indirect object only occurs with a transitive verb.</li>
-</ul></li>
-<li><b>Dative of Interest</b> (Advantage &amp; Disadvantage) [for the benefit of, against, to the disadvantage of]
-<ul class="org-ul">
-<li>Similar to category of indirect object but interest is stressed here.</li>
-</ul></li>
-<li><b>Dative of Reference/Respect</b> [with reference to, concerning, about]</li>
-<li>Ethical Dative [as far as I am concerned]</li>
-<li>Dative of Destination [to]
-<ul class="org-ul">
-<li>Similar to indirect obj but takes intransitive verb.</li>
-</ul></li>
-<li>Dative of Recipient
-<ul class="org-ul">
-<li>Personal noun in dative case occurring in verbless constructions.</li>
-</ul></li>
-<li>Dative of Possession [belonging to, possessed by]</li>
-<li>Dative of Thing Possessed [who possesses]</li>
-<li>Predicate Dative</li>
-<li><b>Dative in Simple Apposition</b></li>
-</ul>
-</div>
-</div>
-<div id="outline-container-org0702965" class="outline-4">
-<h4 id="org0702965">Local Dative Uses</h4>
-<div class="outline-text-4" id="text-org0702965">
-<ul class="org-ul">
-<li>Dative of Place</li>
-<li><b>Dative of Sphere</b> [in the sphere of]
-<ul class="org-ul">
-<li>Dat of reference views the word to which the dat stands as separated, while dat of sphere, it is incorporated within the realm of the dative.</li>
-</ul></li>
-<li><b>Dative of Time</b> (when)
-<ul class="org-ul">
-<li>Denotes point of time.</li>
-</ul></li>
-<li>Dative of Rule [according to, in conformity with]</li>
-</ul>
-</div>
-</div>
-<div id="outline-container-org9d338a7" class="outline-4">
-<h4 id="org9d338a7">Instrumental Dative Uses</h4>
-<div class="outline-text-4" id="text-org9d338a7">
-<ul class="org-ul">
-<li><b>Dative of Association</b> [in association with]
-<ul class="org-ul">
-<li>Diff between gen of assoc and dative of assoc is that gen is used with nouns (which begin with συν-) while dative is used with verbs (which begin with συν-)</li>
-</ul></li>
-<li>Dative of Manner (or Adverbial Dative) [with, in (answering How?)]</li>
-<li><b>Dative of Means/Instrument</b> [by, by means of, with]</li>
-<li>Dative of Agency [by, through]</li>
-<li>Dative of Measure/Degree of Difference [by]</li>
-<li><b>Dative of Cause</b> [because of]
-<ul class="org-ul">
-<li>Dat of means = how, dat of cause = the why; dat of means = method, dat of cause = basis.</li>
-</ul></li>
-<li>Cognate Dative</li>
-<li>Dative of Material</li>
-<li>Dative of Content</li>
-</ul>
-</div>
-</div>
-<div id="outline-container-orgcf08925" class="outline-4">
-<h4 id="orgcf08925">The Uses of the Dative After Certain Words</h4>
-<div class="outline-text-4" id="text-orgcf08925">
-<ul class="org-ul">
-<li><b>Dative Direct Object</b> [to, in]</li>
-<li>Dative After Certain Nouns</li>
-<li>Dative After Certain Adjectives</li>
-<li><b>Dative After Certain Prepositions</b></li>
-</ul>
-</div>
-</div>
-</div>
-<div id="outline-container-org3a30659" class="outline-3">
-<h3 id="org3a30659">Accusative Case</h3>
-<div class="outline-text-3" id="text-org3a30659">
-</div><div id="outline-container-org3c64c68" class="outline-4">
-<h4 id="org3c64c68">Substantival Uses of the Accusative</h4>
-<div class="outline-text-4" id="text-org3c64c68">
-<ul class="org-ul">
-<li><b>Accusative Direct Object</b></li>
-<li><b>Double Accusatives</b>
-<ul class="org-ul">
-<li><b>Person-Thing</b>
-<ul class="org-ul">
-<li>The thing is the nearer object; the person is the more remote. Person is affected while the thing is effected. 4 categories (1) Teaching, Reminding (2) Clothing, Anointing (3) Inquiring, Asking (4) Other Types of causative ideas</li>
-</ul></li>
-<li><b>Object-Complement</b>
-<ul class="org-ul">
-<li>The complement (noun, adj, participle, inf) predicates the direct obj. Identification of O-C follow the S-P nominative clause. Given the following word order:
-<ul class="org-ul">
-<li>C-O [C-Definite Qualitative; O-Definite]; O-C [O-Definite; C-Qualitative Indefinite]. Categories are (1) Calling, designating, confessing (2) Making, appointing (3) Sending, expelling (4) Considering, regarding (5) Having, taking (6) Declaring, presenting</li>
-</ul></li>
-</ul></li>
-</ul></li>
-<li>Cognate Accusative</li>
-<li>Predicate Accusative
-<ul class="org-ul">
-<li>Substantive and predicate are joined by an equative verb (inf. or ptc.). Determine S-P by following S-P nominative rule, except interrogative pronouns are the P.</li>
-</ul></li>
-<li><b>Accusative Subject of Infinitive</b>
-<ul class="org-ul">
-<li>When an inf. has 2 acc. 
-<ul class="org-ul">
-<li>subj acc-predicate acc with equative verb inf (S-P). Follow S-P nominative rule.</li>
-<li>subj acc-direct object with transitive verb inf (S-O). Use common sense.</li>
-</ul></li>
-</ul></li>
-<li>Accusative of Retained Object</li>
-<li>Pendent Accusative
-<ul class="org-ul">
-<li>Grammatical independent use of the acc. The acc is "hanging" at the beginning of the clause, but referenced later by a pronoun.</li>
-</ul></li>
-<li><b>Accusative in Simple Apposition</b></li>
-</ul>
-</div>
-</div>
-
-<div id="outline-container-org5b1d683" class="outline-4">
-<h4 id="org5b1d683">Adverbial Uses of the Accusative</h4>
-<div class="outline-text-4" id="text-org5b1d683">
-<ul class="org-ul">
-<li>Adverbial Accusative (Accusative of Manner)
-<ul class="org-ul">
-<li>Functions like an adverb in that it qualifies the action of the verb</li>
-</ul></li>
-<li><b>Accusative of Measure</b> (or Extent of Space or Time)
-<ul class="org-ul">
-<li>Use for the extent of (space) or for the duration of (time). Gen. refers to kind of time, dat. is point in time (answering "When?"), and acc. is extent of time (answering "How long?").</li>
-</ul></li>
-<li>Accusative of Respect of (General) Reference</li>
-<li>Accusative in Oaths</li>
-</ul>
-</div>
-</div>
-<div id="outline-container-orga455a0a" class="outline-4">
-<h4 id="orga455a0a">Accusative After Certain Prepositions</h4>
-</div>
-</div>
-</div>
-<div id="outline-container-org465239f" class="outline-2">
-<h2 id="org465239f">Article</h2>
-<div class="outline-text-2" id="text-org465239f">
-</div><div id="outline-container-orge20b392" class="outline-3">
-<h3 id="orge20b392">Regular Uses of the Article</h3>
-<div class="outline-text-3" id="text-orge20b392">
-<ul class="org-ul">
-<li>As a Pronoun ([partially] Independent Use)
-<ul class="org-ul">
-<li><b>Personal Pronoun</b> [he, she, it]: Nom. art. in place of 3p pronoun. With ὁ μέν … ὁ δέ or ὁ δέ.</li>
-<li>Alternative Personal Pronoun [the one &#x2026; the other]: Nom. art. (1) ὁ μέν … ὁ δέ (2) mild contrast</li>
-<li><b>Relative Pronoun</b> [who, which]: esp after a noun before a phrase</li>
-<li>Possessive Pronoun [his, her]</li>
-</ul></li>
-<li>With Substantives (Dependent or Modifying Use)
-<ul class="org-ul">
-<li>Individualizing Article
-<ul class="org-ul">
-<li>Simple Identification</li>
-<li><b>Anaphoric</b> (Previous Reference)
-<ul class="org-ul">
-<li>1st mention of substantive is usually anarthrous.</li>
-</ul></li>
-<li>Well-known</li>
-<li>Par Excellence (Extreme of a particular class)</li>
-<li>Mondadic (One of a kind, unique)</li>
-<li><b>Abstract</b> (Article with Abstract nouns)
-<ul class="org-ul">
-<li>Focus on quality while generic focus on a category</li>
-</ul></li>
-<li>Deictic ("Pointing" Article - demonstrative)</li>
-<li>Kataphoric (Following Reference)</li>
-</ul></li>
-<li><b>Generic Article</b> (Categorical Article) [as a class]
-<ul class="org-ul">
-<li>Distinguish one class from another. May translate with an indefinite article.</li>
-</ul></li>
-</ul></li>
-<li><b>As a Substantiver</b> (With Certain Parts of Speech)
-<ul class="org-ul">
-<li>Adv</li>
-<li>Adj</li>
-<li>Participles</li>
-<li>Inf</li>
-<li>Non-gen article followed by gen word or phrase "son, things"</li>
-<li>Prepositional phrase</li>
-<li>Particles</li>
-<li>Clauses, statements &amp; quotations.</li>
-</ul></li>
-<li><b>As a Function Marker</b> (may or may not bear semantic force)
-<ul class="org-ul">
-<li>To Denote adjectival Positions - Art in 2nd attributive position has no semantic meaning.</li>
-<li>With Possessive Pronouns</li>
-<li>In Genitive Phrases (Appollonius' Canon). Both head and gen noun normally have or lack the art</li>
-<li>With Indeclinable nouns</li>
-<li>With Participles - art functions as a substantiver and as a function marker</li>
-<li>With Demonstratives - in predicate position to indicate attributive function</li>
-<li>With Nominative Nouns (to denote subject)</li>
-<li>To distinguish Subject from Pred-Nom and Obj from Comp
-<ul class="org-ul">
-<li>With the Infinitive to denote various functions.</li>
-</ul></li>
-</ul></li>
-</ul>
-</div>
-</div>
-
-<div id="outline-container-org38483bf" class="outline-3">
-<h3 id="org38483bf">Absence of the Article</h3>
-<div class="outline-text-3" id="text-org38483bf">
-<p>
-A noun must be definite with the article, and may be definite without the article. 
-Indef (God is a love) - Qual (God is love) - Def (God is the love) 
-</p>
-<ul class="org-ul">
-<li><b>Indefinite</b> (One member of a class, without specifying which member)</li>
-<li><b>Qualitative</b> (Stress on quality, nature, essence)</li>
-</ul>
-<p>
-Similar to generic noun as it focus on kind but unlike generic as it focus on one individual rather than a class. Most abstract nouns will be qual, but not generic because no class is in view 
-</p>
-<ul class="org-ul">
-<li><b>Definite</b> (Stress on individual identity)
-<ul class="org-ul">
-<li>Proper Names</li>
-<li>Object of a Preposition (if articular, must be definite; if anarthous, may be definite)</li>
-<li>With Ordinal Numbers</li>
-<li>Predicate Nominative (if PN precede copula, it may be definite, Coldwell's Rule)</li>
-<li>Complement in Obj-Complement Construction (if precede the Obj)</li>
-<li>Monadic nouns</li>
-<li>Abstract Nouns (qualitative definite)</li>
-<li>Genitive Construction (Apollonius' Corollary)
-<ul class="org-ul">
-<li>When head and gen nouns are anarthrous, both will usually have the same semantic force</li>
-<li>With Pronominal Adj (e.g. πᾶς, ὅλος - all or every)</li>
-</ul></li>
-<li>Generic Nouns (little diff bw articular generics and anarthrous generics)</li>
-</ul></li>
-</ul>
-</div>
-
-<div id="outline-container-orgbfdda9c" class="outline-4">
-<h4 id="orgbfdda9c">Apollonius’ Corollary</h4>
-<div class="outline-text-4" id="text-orgbfdda9c">
-<ul class="org-ul">
-<li>I don’t think this works as a good rule. It does not work in the LXX.
-<ul class="org-ul">
-<li>1 Kgdms 2:27 “And a man of God came to Eli” καὶ ἦλθεν ἄνθρωπος θεοῦ πρὸς Ηλι.</li>
-<li>1 Kgdms 9:6 “Behold, now a man of God is in this city” Ἰδοὺ δὴ ἄνθρωπος τοῦ θεοῦ ἐν τῇ πόλει ταύτῃ.</li>
-<li>3 Kgdms 12:22 “And a word of the Lord came to Samaias, a man of God, saying ἐγένετο λόγος κυρίου πρὸς Σαμαιαν ἄνθρωπον τοῦ θεοῦ λέγων</li>
-<li>3 Kgdms 13:1 “And behold, a man of God came out of Ioudas to Baithel by word of the Lord” Καὶ ἰδοὺ ἄνθρωπος τοῦ θεοῦ ἐξ Ιουδα παρεγένετο ἐν λόγῳ κυρίου εἰς Βαιθηλ</li>
-<li>3 Kgms 17:24 “And the woman said to Elijah, ‘Now I know that you are a man of God, and that the word of the LORD in your mouth is truth.’” (καὶ εἶπεν ἡ γυνὴ πρὸς Ηλιου Ἰδοὺ ἔγνωκα ὅτι ἄνθρωπος θεοῦ εἶ σὺ καὶ ῥῆμα κυρίου ἐν στόματί σου ἀληθινόν)</li>
-</ul></li>
-<li>The genitival noun clearly delimits the head noun in some fashion, e.g. “a man of God” is clearly as smaller category that “a man.” But it is unlikely that both head and genitive nouns will have the same semantic domain.</li>
-<li>Moreover, other grammar books don’t use Apollonius’ corollary.</li>
-</ul>
-</div>
-</div>
-</div>
-<div id="outline-container-org04211de" class="outline-3">
-<h3 id="org04211de">Special Uses and Non-Uses of the Article</h3>
-<div class="outline-text-3" id="text-org04211de">
-<ul class="org-ul">
-<li>Colwell's Rule</li>
-</ul>
-<p>
-In general, PN is anarthrous and it follows the copula. It is usually qualitative or indefinite. 
-</p>
-<ul class="org-ul">
-<li>Colwell's Rule.  A PN that precedes the copula, and which is apparently definite from the context, usually lacks the article. This does not imply the converse, that an anarthous PN that precedes the verb is usually definite.</li>
-<li>Colwell's Construction. An anarthrous pre-verbal PN is normally qualitative, sometimes definite, and only rarely indefinite.</li>
-<li>Absent verb. When an anarthrous PN stands before the subj, it will either be qualitative or definite.</li>
-</ul>
-<ul class="org-ul">
-<li>Granville Sharp Rule</li>
-</ul>
-<p>
-In the TSKS construction, the 2nd noun refers to the same person mentioned with the 1st noun when: (1) neither is impersonal, (2) neither is plural, (3) neither is a proper name. 
-</p>
-<ul class="org-ul">
-<li>Constructions involving Impersonal, Plural, and Proper names 
-<ul class="org-ul">
-<li>Proper names - They're united under 1 article for the purposes at hand</li>
-<li>Plural Personal Constructions or Impersonal Construction 
-<ul class="org-ul">
-<li>Distinct Groups, though United ( [1] [2] )</li>
-<li>Overlapping Groups</li>
-<li>1st Group Subset of 2nd</li>
-<li>2nd Group Subset of 1st</li>
-<li>Both Identical</li>
-</ul></li>
-</ul></li>
-</ul>
-</div>
-
-<div id="outline-container-org40607db" class="outline-4">
-<h4 id="org40607db">Apollonius’ Canon</h4>
-<div class="outline-text-4" id="text-org40607db">
-<ul class="org-ul">
-<li>Nouns in regimen (i.e. the condition both of the governing and governed noun) must have articles prefixed to both of them or neither. 
-<ul class="org-ul">
-<li>ἐν λόγῳ ἀληθείας or ἐν τῷ λόγῳ τῆς ἀληθείας.</li>
-</ul></li>
-<li>Modification: The governing noun may be anarthrous without necessitating the omission of the article with the governed. 
-<ul class="org-ul">
-<li>ὁ λόγος ἀληθείας (impossible) || λόγος τῆς ἀληθείας (possible).</li>
-</ul></li>
-<li>Biblio.
-<ul class="org-ul">
-<li>See also S. D. Hull, “Exception to Apollonius’ Canon in the NT: A Grammatical Study,” Trinity Journal 7 (1986): 3–16.</li>
-</ul></li>
-</ul>
-</div>
-</div>
-<div id="outline-container-org91f08b0" class="outline-4">
-<h4 id="org91f08b0">Colwell’s Rule</h4>
-<div class="outline-text-4" id="text-org91f08b0">
-<p>
-The following rules may be tentatively formulated to describe the use of the article with definite predicate nouns in sentences in which the verb occurs. (1) Definite predicate nouns here regularly take the article. (2) The exceptions are for the most part due to a change in word-order: (a) Definite predicate nouns which follow the verb (this is the usual order) usually take the article; (b) Definite predicate nouns which precede the verb usually lack the article; (c) Proper names regularly lack the article in the predicate; (d) Predicate nominatives in relative clauses regularly follow the verb whether or not they have the article.
-</p>
-</div>
-</div>
-</div>
-</div>
-<div id="outline-container-orgb5d86c6" class="outline-2">
-<h2 id="orgb5d86c6">Adjectives</h2>
-<div class="outline-text-2" id="text-orgb5d86c6">
-</div><div id="outline-container-org98c8e3e" class="outline-3">
-<h3 id="org98c8e3e">"Non-Adjectival" Uses of the Adj</h3>
-<div class="outline-text-3" id="text-org98c8e3e">
-<ul class="org-ul">
-<li>Adverbial Use of the Adj</li>
-<li><b>The Independent or Substantival Use of the Adj</b>
-<ul class="org-ul">
-<li>Usually, a substantival adj will have an art to point out that it is indeed substantival</li>
-</ul></li>
-</ul>
-</div>
-</div>
-<div id="outline-container-orgc5e2fb6" class="outline-3">
-<h3 id="orgc5e2fb6">The Use of the Positive, Comparative, and Superlative Forms of the Adj</h3>
-<div class="outline-text-3" id="text-orgc5e2fb6">
-<ul class="org-ul">
-<li>Use of the Positive Adj
-<ul class="org-ul">
-<li>Normal Usage</li>
-<li>Positive for Comparative</li>
-<li>Positive for Superlative (Adj is in attributive position and with par excellence art)</li>
-</ul></li>
-<li>Use of the Comparative Adj
-<ul class="org-ul">
-<li>Normal Usage</li>
-<li>Comparative for Superlative</li>
-<li>Comparative for Elative (eg very strong man)</li>
-</ul></li>
-<li>Use of the Superlative Adj
-<ul class="org-ul">
-<li>Normal Usage (usually with protos and eschatos)</li>
-<li>Supelative for Elative</li>
-<li>Superlative for Comparative (when compare only 2 things)</li>
-</ul></li>
-</ul>
-</div>
-</div>
-<div id="outline-container-org2c3165d" class="outline-3">
-<h3 id="org2c3165d">The Relation of Adj to Noun</h3>
-<div class="outline-text-3" id="text-org2c3165d">
-<ul class="org-ul">
-<li>When the Article is Present
-<ul class="org-ul">
-<li><b>The Attributive Positions</b>
-<ul class="org-ul">
-<li>1st Attributive Position (TAN)</li>
-<li>2nd Attributive Position (TNTA)</li>
-<li>3rd Attributive Position (NTA)</li>
-</ul></li>
-<li><b>The Predicate Positions</b>
-<ul class="org-ul">
-<li><b>1st Predicate Position</b> (ATN)</li>
-<li><b>2nd Predicate Position</b> (TNA)</li>
-</ul></li>
-</ul></li>
-<li>When the Article is Absent
-<ul class="org-ul">
-<li>The Anarthrous Adjective-Noun Construction</li>
-<li>Determine from context if its anarthrous 1st attributive/predicate position</li>
-<li>The Anarthrous Noun-Adjective Construction
-<ul class="org-ul">
-<li>4th Attributive Position</li>
-<li>Anarthrous 2nd Predicate Position</li>
-</ul></li>
-</ul></li>
-</ul>
-</div>
-</div>
-</div>
-<div id="outline-container-orgc9a80a3" class="outline-2">
-<h2 id="orgc9a80a3">Person and Number</h2>
-<div class="outline-text-2" id="text-orgc9a80a3">
-</div><div id="outline-container-org4371ae5" class="outline-3">
-<h3 id="org4371ae5">8.1	Person</h3>
-<div class="outline-text-3" id="text-org4371ae5">
-<ul class="org-ul">
-<li>1st Person for 3rd Person ("I" = "Someone")</li>
-<li>2nd Person for 3rd Person ("You" = "Someone")? (Likely to have no indefinite 2nd person)</li>
-<li>1st Person Plural Constructions: The Scope of "We" (Inclusive We = Author &amp; readers (Exclusive We = I &amp; my associates (Editorial We = I ))) 
-<ul class="org-ul">
-<li>Editorial "We":</li>
-</ul></li>
-</ul>
-<p>
-When (1) author shift unexpectedly from singular to plural, (2) usually nom. case 
-</p>
-<ul class="org-ul">
-<li>Inclusive "We" vs Exclusive "We"</li>
-</ul>
-</div>
-</div>
-<div id="outline-container-org1a7668c" class="outline-3">
-<h3 id="org1a7668c">8.2	Number</h3>
-<div class="outline-text-3" id="text-org1a7668c">
-<ul class="org-ul">
-<li>Neuter Plural Subject with Singular Verb</li>
-<li>Collective Singular Subject with Plural Verb</li>
-<li>Compound Subject with Singular Verb</li>
-</ul>
-<p>
-2 subjects joined by a conjunction. Stress is on the 1st named subject. 
-</p>
-<ul class="org-ul">
-<li>The Indefinite Plural ("They" = "Someone")</li>
-<li>The Categorical Plural (aka Generalizing Plural)</li>
-</ul>
-</div>
-</div>
-</div>
-
-<div id="outline-container-org0e8bb57" class="outline-2">
-<h2 id="org0e8bb57">Voice</h2>
-<div class="outline-text-2" id="text-org0e8bb57">
-<p>
-Transitiveness relates action of a verb to an object, while voice relates the action of a verb to its subject. Transitive verbs can be translated to the passive. 
-</p>
-</div>
-<div id="outline-container-orga144132" class="outline-3">
-<h3 id="orga144132">9.1	Active Voice</h3>
-<div class="outline-text-3" id="text-orga144132">
-<p>
-The subj. performs, produces, or experiences the action or exists in the state expressed by the verb. 
-</p>
-<ul class="org-ul">
-<li>Simple Active
-<ul class="org-ul">
-<li>Subject performs or experiences the action.</li>
-</ul></li>
-<li>Causative Active
-<ul class="org-ul">
-<li>Subject is not directly involved in the action, but is the ultimate source or cause of it.</li>
-</ul></li>
-<li>Stative Active (occurs with equative verbs and verbs that use am + a pred adj)
-<ul class="org-ul">
-<li>Subject exists in the state indicated by the verb.</li>
-</ul></li>
-<li>Reflexive Active
-<ul class="org-ul">
-<li>Subject acts upon himself. Usually, reflexive pronoun is used as the direct object.</li>
-</ul></li>
-</ul>
-</div>
-</div>
-<div id="outline-container-org54918da" class="outline-3">
-<h3 id="org54918da">9.2	Middle Voice</h3>
-<div class="outline-text-3" id="text-org54918da">
-<p>
-The subj. performs or experiences the action expressed by the verb in such a way that emphasizes the subject's participation. Active voice emphasizes action of the verb, middle emphasize actor [subj] of the verb. 
-</p>
-<ul class="org-ul">
-<li>Direct Middle
-<ul class="org-ul">
-<li>Subj acts on himself. Translate verb + himself as direct obj.</li>
-</ul></li>
-<li>Redundant Middle
-<ul class="org-ul">
-<li>Require an explicit pronoun to convey reflexive notion.</li>
-</ul></li>
-<li>Indirect Middle
-<ul class="org-ul">
-<li>Subj. acts for/by himself, or in his own interest.</li>
-</ul></li>
-<li>Causative Middle
-<ul class="org-ul">
-<li>Subj. has something done for or to himself.</li>
-</ul></li>
-<li>Permissive Middle
-<ul class="org-ul">
-<li>Subj. allows something to be done for or to himself.</li>
-</ul></li>
-<li>Reciprocal Middle
-<ul class="org-ul">
-<li>Used with plural subjects to indicate interaction among themselves. Replace with ἀλλήλων.</li>
-</ul></li>
-<li>Deponent Middle
-<ul class="org-ul">
-<li>No active form but is active in meaning.</li>
-</ul></li>
-</ul>
-</div>
-</div>
-
-<div id="outline-container-org00b9313" class="outline-3">
-<h3 id="org00b9313">9.3	Passive Voice</h3>
-<div class="outline-text-3" id="text-org00b9313">
-<p>
-Subj. is acted upon or receives the action expressed by the verb. No volition - nor even necessarily awareness of the action is implied in the part of the subj. 
-</p>
+</section>
 
 
-<p>
-Agency	Preposition (Case)	Translation
-Ultimate Agent	ὑπό (gen)  
-ἀπό (gen)  
-παρά (gen) 	by  
-by, of  
-from, by
-Intermediate Agent	διά (gen) 	through, by
-Impersonal Means	ἐν (dat)  
-dative (no prep)  
-ἐκ (gen) 	by, with  
-by, with  
-by, of
-</p>
+<section>
+<section id="slide-org0ebce0b">
+<h2 id="org0ebce0b">Destination</h2>
+<ul>
+<li>In Paul's day, Galatia has an ethnic/geographical and political/geographical referent:
+<ul>
+<li>Ethnic referent (North Galatia) [Lightfoot]</li>
+<li>Political referent (South Galatia) [Ramsey, Bruce]</li>
 
-<ul class="org-ul">
-<li>Simple Passive</li>
-<li>Causative/Permissive Passive</li>
-<li>Deponent Passive</li>
-</ul>
-</div>
-</div>
-</div>
-<div id="outline-container-org585f144" class="outline-2">
-<h2 id="org585f144">Moods</h2>
-<div class="outline-text-2" id="text-org585f144">
-<p>
-Voice indicates how the subject relates to the action or state of the verb; tense indicates kind of action; mood presents the verbal action or state wrt its actuality or potentiality. 
-Defn: Mood is the morphological feature of a verb that a speaker uses to portray his or her affirmation as to the certainty of the verbal action or state (actuality or potentiality). (1) does not correspond to reality (2) does not indicate a speaker's perception of reality (3) indicate speaker's portrayal or representation. 
-Portrayal : Indicative - certain/asserted; Subjunctive - probable/desirable; Optative - possible; Imperative - intended. 
-</p>
-</div>
-<div id="outline-container-org8bd5183" class="outline-3">
-<h3 id="org8bd5183">10.1	Indicative Mood (Mood of assertion or presentation of certainty)</h3>
-<div class="outline-text-3" id="text-org8bd5183">
-<ul class="org-ul">
-<li>Declarative Indicative</li>
-<li>Interrogative Indicative (don't ask the how or why, but the what)</li>
-<li>Conditional Indicative (used in protasis of conditional statements made explicit with ei)</li>
-<li>Potential Indicative (with verbs of obligation, wish or desire, followed by an inf.)</li>
-<li>Cohortative Indicative (Command, Volitive - future indicative)</li>
-<li>Indicative with ὅτι
-<ul class="org-ul">
-<li>Substantival ὅτι clauses 
-<ul class="org-ul">
-<li>Subject Clause</li>
-<li>Direct Object Clause 
-<ul class="org-ul">
-<li>Direct Object Clause Proper (not after a verb of perception)</li>
-<li>Direct Discourse (after a verb of perception)</li>
-<li>Indirect Discourse (after a verb of perception)</li>
 </ul></li>
-</ul></li>
-</ul></li>
-</ul>
-<p>
-The tense of the Greek verb in indirect discourse is retained from direct discourse.
-</p>
-<ul class="org-ul">
-<li>Apposition [namely, that] - usually in apposition to the demonstrative touto)</li>
-</ul>
-<ul class="org-ul">
-<li>Epexegetical (explains, clarifies or completes a previous word or phrase)</li>
-<li>Causal (Adverbial) [because]</li>
-</ul>
-</div>
-</div>
+<li>Summarizing factors
+<ul>
+<li>Romanization</li>
+<li>Synagogues</li>
+<li>Evidence for Pauline mission in N. Galatia is fragmentary.</li>
 
-<div id="outline-container-org9d6c81c" class="outline-3">
-<h3 id="org9d6c81c">10.2	Subjunctive Mood (Represents the verbal action (or state) as uncertain but probable)</h3>
-<div class="outline-text-3" id="text-org9d6c81c">
-</div><div id="outline-container-orga6396d3" class="outline-4">
-<h4 id="orga6396d3">10.2.1	In Independent Clauses</h4>
-<div class="outline-text-4" id="text-orga6396d3">
-<ul class="org-ul">
-<li>Hortatory Subjunctive [let us]
-<ul class="org-ul">
-<li>Usually 1P. If 1S, there should be presence of ἄφες (permit) or δεῦρο (come) preceding the subjunctive.</li>
-</ul></li>
-<li>Deliberative Subjunctive
-<ul class="org-ul">
-<li>Deliberative Real Subjunctive (cognitive)
-<ul class="org-ul">
-<li>Expects some kind of answer and is a genuine question. It asks the How? Whether?</li>
-</ul></li>
-<li>Deliberative Rhetorical Subjunctive (volitive)</li>
-<li>Expects no verbal response. Does not ask a question of fact, but of obligation.</li>
-</ul></li>
-<li>Emphatic Negation Subjunctive (οὐ μή + aor subj)</li>
-<li>Prohibitive Subjunctive (usually μή + aor subj) [do not]
-<ul class="org-ul">
-<li>Typically 2nd person. Force is imperative after μή.</li>
-</ul></li>
-</ul>
-</div>
-</div>
-
-<div id="outline-container-orgfee620e" class="outline-4">
-<h4 id="orgfee620e">10.2.2	In Dependent (Subordinate) Clauses</h4>
-<div class="outline-text-4" id="text-orgfee620e">
-<ul class="org-ul">
-<li>Subjunctive in Conditional sentences
-<ul class="org-ul">
-<li>Found in the protasis, presence of εαν.</li>
-</ul></li>
-<li>ἵνα + subjunctive
-<ul class="org-ul">
-<li>Purpose ἵνα Clause [in order that, to]
-<ul class="org-ul">
-<li>Focus on the intention of the action of the main verb, whether accomplished or not.</li>
-</ul></li>
-<li>Result ἵνα Clause [so that, with the result that]
-<ul class="org-ul">
-<li>Indicates a consequence of the verbal action that is not intended.</li>
-</ul></li>
-<li>Purpose-Result ἵνα Clause [in order that]
-<ul class="org-ul">
-<li>Indicates both the intention and its sure accomplishment.</li>
-</ul></li>
-<li>Substantival ἵνα Clause
-<ul class="org-ul">
-<li>Subject Clause</li>
-<li>Predicate Nominative Clause</li>
-<li>Direct Object Clause (gives the content of the main verb)</li>
-<li>Apposition Clause [namely, that]</li>
-</ul></li>
-<li>Epexegetical ἵνα Clause. Used after noun or adj to clarify that noun or adj.</li>
-<li>Complementary ἵνα (completes the meaning of a helping verb, force of purpose, θέλω, δύναμαι)</li>
-<li>Imperatival ἵνα (force of a command)</li>
-</ul></li>
-<li>Subjunctive with Verbs of Fearing, Warning, Watching out for</li>
-<li>Subjunctive in Indirect Questions</li>
-<li>Subjunctive in Indefinite Relative Clause (usually after ὅστις  (ἄν/ἐαν) or ὅς [δ’] ἄν)</li>
-<li>Subjunctive in Indefinite Temporal Clause (usually after ἕως, ἄχρι, μέχρι, ὅταν)</li>
-</ul>
-</div>
-</div>
-</div>
-<div id="outline-container-org4c7d665" class="outline-3">
-<h3 id="org4c7d665">10.3	Optative Mood (Portray an action as possible)</h3>
-<div class="outline-text-3" id="text-org4c7d665">
-<ul class="org-ul">
-<li>Voluntative Optative (express obtainable wish or prayer. an appeal to the will) eg μὴ γένοιτο</li>
-<li>Oblique Optative (in indirect questions after a secondary tense), e.g. εἴη</li>
-<li>Potential Optative</li>
-<li>Conditional Optative</li>
-</ul>
-</div>
-</div>
-<div id="outline-container-orgc43cb50" class="outline-3">
-<h3 id="orgc43cb50">10.4	Imperative Mood</h3>
-<div class="outline-text-3" id="text-orgc43cb50">
-<ul class="org-ul">
-<li>Command (from a superior to an inferior)
-<ul class="org-ul">
-<li>aorist = command the action as a whole; present = command the action as an ongoing process.</li>
-</ul></li>
-<li>Prohibition (with μή)</li>
-<li>Request (speaker is addressing a superior)</li>
-<li>Permissive Imperative</li>
-<li>Conditional Imperative (usually imperative + καί + future ind; idea is "If X, then Y will happen")</li>
-<li>Potential Imperative</li>
-<li>Pronouncement Imperative</li>
-</ul>
-</div>
-</div>
-</div>
-<div id="outline-container-org2ddf8d5" class="outline-2">
-<h2 id="org2ddf8d5">Tenses</h2>
-<div class="outline-text-2" id="text-org2ddf8d5">
-<ul class="org-ul">
-<li>Time is absolute in the indicative, relative in the participle, and nonexistent in the other moods. Internal (or progressive) - present, imperfect; External (or Summary) - aorist, future; Perfective-Stative - perfect, pluperfect. Aspect is the basic defn of a tense while Aktionsart deals with the various categories of usage.</li>
-</ul>
-</div>
-<div id="outline-container-org4a19c88" class="outline-3">
-<h3 id="org4a19c88">11.1	Present</h3>
-<div class="outline-text-3" id="text-org4a19c88">
-<ul class="org-ul">
-<li>Aspect: Internal without regard for beginning or end, progressive.</li>
-<li>Time: Usually present time.</li>
-
-<li>Narrow Band (action portrayed occurs over a short time) 
-<ul class="org-ul">
-<li>Instantaneous Present (Aoristic or Punctiliar Present)</li>
-</ul></li>
-</ul>
-<p>
-Action is completed at the moment of speaking. Indicative only. 
-</p>
-<ul class="org-ul">
-<li>Progressive Present [at this present time, right now]</li>
-</ul>
-<p>
-Describing a scene in progress, usually in narrative lit. Diff between this and customary or iterative present is that this is continuous action, not repeated action.
-</p>
-<ul class="org-ul">
-<li>Broad Band (action portrayed occurs over a longer interval) 
-<ul class="org-ul">
-<li>Extending-From-Past Present (Present of Past Action Still In Progress)</li>
-</ul></li>
-</ul>
-<p>
-Diff from perfect tense as perfect speaks only about results existing in the present time. 
-</p>
-<ul class="org-ul">
-<li>Iterative Present [repeatedly, continuously]</li>
-</ul>
-<p>
-Describe an event that repeatedly happens. Usually in imperative mood. 
-</p>
-<ul class="org-ul">
-<li>Customary (Habitual or General) Present [customarily, habitually, continually]</li>
-</ul>
-<p>
-To signal either an action that regularly occurs or an ongoing state. 
-</p>
-<ul class="org-ul">
-<li>Gnomic Present</li>
-</ul>
-<p>
-Used to make a statement of a general, timeless fact; in proverbial statements or general maxims about what occurs at all times. Semantic situations (1) depict deity or nature (2) generic statements.
-</p>
-<ul class="org-ul">
-<li>Special Uses 
-<ul class="org-ul">
-<li>Historical Present (Dramatic Present)</li>
-</ul></li>
-</ul>
-<p>
-To portray an event vividly. Usually, aspectual value is 0. λέγει, λέγουσιν. 
-</p>
-<ul class="org-ul">
-<li>Perfective Present</li>
-<li>Conative (Tendential, Voluntative) Present</li>
-<li>Futuristic Present</li>
-</ul>
-<p>
-Used to describe a future event, giving connotation of immediacy and certainty. Usually with verbs whose lexical nuance is anticipation, eg. ἔπχομαι, -βαίνω, προεύομαι 
-</p>
-<ul class="org-ul">
-<li>Completely Futuristic [is soon going to, is certainly going to, will]</li>
-</ul>
-<p>
-Describe an event that is wholly subsequent to the time of speaking
-</p>
-<ul class="org-ul">
-<li>Mostly Futuristic [is coming]</li>
-</ul>
-<p>
-Describe an event begun in the present time but completed in the future.
-</p>
-<ul class="org-ul">
-<li>Present Retained in Indirect Discourse</li>
-</ul>
-</div>
-</div>
-<div id="outline-container-orgd5f654f" class="outline-3">
-<h3 id="orgd5f654f">11.2	Imperfect</h3>
-<div class="outline-text-3" id="text-orgd5f654f">
-<p>
-Aspect: Internal; Time: Past 
-</p>
-<ul class="org-ul">
-<li>Narrow-Band 
-<ul class="org-ul">
-<li>Instantaneous Imperfect (restricted to ἔλεγεν in narrative lit)</li>
-<li>Progressive Imperfect [was (continually) doing, was (right then) happening]</li>
-<li>Ingressive (Inceptive) Imperfect [began doing]</li>
-</ul></li>
-</ul>
-<p>
-Stress the beginning of an action, with the implication that it continued for some time. Usually in narrative when there's a change in activity, to signal a topic shift.
-</p>
-<ul class="org-ul">
-<li>Broad Band 
-<ul class="org-ul">
-<li>Iterative Imperfect [kept on doing, going]</li>
-</ul></li>
-</ul>
-<p>
-Repeated action in past time. 
-</p>
-<ul class="org-ul">
-<li>Customary (Habitual or General) Imperfect [customarily, habitually, continually]</li>
-</ul>
-<p>
-Regularly recurring activity in past time or a state that continue for some time.
-</p>
-<ul class="org-ul">
-<li>Special Use 
-<ul class="org-ul">
-<li>"Pluperfective" Imperfect</li>
-<li>Conative (Voluntative, Tendential) Imperfect : desired, attempted, tried to …</li>
-<li>Imperfect Retained in Indirect Discourse</li>
-</ul></li>
-</ul>
-<p>
-11.3	Aorist
-Aspect: External, snapshot; Time: Indicative = Past time wrt time of speaking. Participles = antecedent time to that of the main verb. 
-</p>
-<ul class="org-ul">
-<li>Constative (Punctiliar)</li>
-</ul>
-<p>
-Views action as a whole, taking no interest in the internal workings of the action. Place stress on the fact of the occurrence, not its nature. 
-</p>
-<ul class="org-ul">
-<li>Ingressive (Inceptive) [began to do, became]</li>
-</ul>
-<p>
-Stress the beginning of an action or the entrance into a state 
-</p>
-<ul class="org-ul">
-<li>Consummative (Culminative, Effective)</li>
-</ul>
-<p>
-Stress cessation of an act or state. 
-</p>
-<ul class="org-ul">
-<li>Gnomic</li>
-</ul>
-<p>
-Present a timeless, general fact 
-</p>
-<ul class="org-ul">
-<li>Epistolary</li>
-</ul>
-<p>
-Author self-consciously describes his letter from the time frame of the audience. 
-</p>
-<ul class="org-ul">
-<li>Proleptic (Futuristic)</li>
-</ul>
-<p>
-Describe an event that is not yet past as though it were already completed. Stresses the certainty of the event.
-</p>
-<ul class="org-ul">
-<li>Immediate Past/Dramatic [just now, previously]</li>
-</ul>
-</div>
-</div>
-<div id="outline-container-orge1567d4" class="outline-3">
-<h3 id="orge1567d4">11.4	Future</h3>
-<div class="outline-text-3" id="text-orge1567d4">
-<p>
-Aspect: External, summary; Time: Future from the speaker's presentation. 
-</p>
-<ul class="org-ul">
-<li>Predictive</li>
-</ul>
-<p>
-Indicate that something will take place or come to pass. 
-</p>
-<ul class="org-ul">
-<li>Imperatival</li>
-</ul>
-<p>
-Fut Indicative is sometimes used for a command, having a universal, timeless and/or solemn force to it. 
-</p>
-<ul class="org-ul">
-<li>Deliberative</li>
-</ul>
-<p>
-Asks a question that implies some doubt about the response. 
-</p>
-<ul class="org-ul">
-<li>Gnomic</li>
-</ul>
-</div>
-</div>
-<div id="outline-container-orgb8a4fd4" class="outline-3">
-<h3 id="orgb8a4fd4">11.5	Perfect &amp; Pluperfect</h3>
-<div class="outline-text-3" id="text-orgb8a4fd4">
-<p>
-Aspect: Stative, resultative, completed. Action is presented externally, while resultant state is presented internally; Time: Future from the speaker's presentation. 
-</p>
-<ul class="org-ul">
-<li>Perfect</li>
-</ul>
-<p>
-Completed action with results existing in the present 
-</p>
-<ul class="org-ul">
-<li>Intensive (Resultative)</li>
-</ul>
-<p>
-Emphasize the result or present state produced by a past action. Translate with a present tense. Usually stative verbs belong here. 
-</p>
-<ul class="org-ul">
-<li>Extensive (Consummative)</li>
-</ul>
-<p>
-Emphasize the completed action of a past action or process from which a present state emerges. Perfects can be extensive or intensive, but transitive verbs often belong here. 
-</p>
-<ul class="org-ul">
-<li>Aoristic (Dramatic or Historical)</li>
-<li>Perfect with a Present Force</li>
-</ul>
-<p>
-Little diff between action and results. Eg οἶδα, ἕστηκα, πέποιθα 
-</p>
-<ul class="org-ul">
-<li>Gnomic</li>
-<li>Proleptic (Futuristic)</li>
-</ul>
-<p>
-Occurs in the apodosis of a conditional clause. 
-</p>
-<ul class="org-ul">
-<li>Perfect of Allegory</li>
-</ul>
-<ul class="org-ul">
-<li>Pluperfect</li>
-</ul>
-<p>
-Completed action with results existing in the past. The pluperfect combines the aspects of the aorist (for the event) and the imperfect (for the results). It makes no comment about the result existing up the time of speaking. 
-</p>
-<ul class="org-ul">
-<li>Intensive (Resultative)</li>
-<li>Extensive (Consummative)</li>
-<li>Pluperfect with a Simple Past Force</li>
-</ul>
-</div>
-</div>
-
-<div id="outline-container-orgbe07271" class="outline-3">
-<h3 id="orgbe07271">Summary</h3>
-<div class="outline-text-3" id="text-orgbe07271">
-<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
-
-
-<colgroup>
-<col  class="org-left" />
-
-<col  class="org-left" />
-
-<col  class="org-left" />
-
-<col  class="org-left" />
-
-<col  class="org-left" />
-
-<col  class="org-left" />
-</colgroup>
-<thead>
-<tr>
-<th scope="col" class="org-left">Present</th>
-<th scope="col" class="org-left">Imperfect</th>
-<th scope="col" class="org-left">Aorist</th>
-<th scope="col" class="org-left">Future</th>
-<th scope="col" class="org-left">Perfect</th>
-<th scope="col" class="org-left">Pluperfect</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td class="org-left">Instantaneous</td>
-<td class="org-left">Instantaneous</td>
-<td class="org-left">Constative</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-</tr>
-
-<tr>
-<td class="org-left">Progressive</td>
-<td class="org-left">Progressive</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-</tr>
-
-<tr>
-<td class="org-left">Extend-from-past</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-</tr>
-
-<tr>
-<td class="org-left">Iterative</td>
-<td class="org-left">Iterative</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-</tr>
-
-<tr>
-<td class="org-left">Customary</td>
-<td class="org-left">Customary</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-</tr>
-
-<tr>
-<td class="org-left">Gnomic</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">Gnomic</td>
-<td class="org-left">Gnomic</td>
-<td class="org-left">Gnomic</td>
-<td class="org-left">&#xa0;</td>
-</tr>
-
-<tr>
-<td class="org-left">Historical</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">Aoristic (Historical)</td>
-<td class="org-left">&#xa0;</td>
-</tr>
-
-<tr>
-<td class="org-left">Perfective</td>
-<td class="org-left">Pluperfective</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">Intensive (Resultative)</td>
-<td class="org-left">Intensive (Resultative)</td>
-</tr>
-
-<tr>
-<td class="org-left">Conative</td>
-<td class="org-left">Conative</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-</tr>
-
-<tr>
-<td class="org-left">Futuristic</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">Proleptic</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">Proleptic</td>
-<td class="org-left">&#xa0;</td>
-</tr>
-
-<tr>
-<td class="org-left">Indirect discourse</td>
-<td class="org-left">Indirect discourse</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-</tr>
-
-<tr>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">Ingressive</td>
-<td class="org-left">Ingressive</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-</tr>
-
-<tr>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">Epistolary</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-</tr>
-
-<tr>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">Dramatic</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-</tr>
-
-<tr>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">Consumative</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">Extensive (Consumative)</td>
-<td class="org-left">Extensive (Consumative)</td>
-</tr>
-
-<tr>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">Predictive</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-</tr>
-
-<tr>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">Imperatival</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-</tr>
-
-<tr>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">Deliberative</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-</tr>
-
-<tr>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">Subjunctive Equivalents</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-</tr>
-
-<tr>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">Present Force</td>
-<td class="org-left">Past Force</td>
-</tr>
-
-<tr>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">Allegory</td>
-<td class="org-left">&#xa0;</td>
-</tr>
-</tbody>
-</table>
-</div>
-</div>
-</div>
-
-
-<div id="outline-container-orgda87b5c" class="outline-2">
-<h2 id="orgda87b5c">Infinitive</h2>
-<div class="outline-text-2" id="text-orgda87b5c">
-<p>
-Indeclinable verbal noun. Neuter article before inf has no significance. 
-</p>
-</div>
-<div id="outline-container-org7650a92" class="outline-3">
-<h3 id="org7650a92">12.1	Semantic Categories</h3>
-<div class="outline-text-3" id="text-org7650a92">
-<ul class="org-ul">
-<li>Adverbial Uses
-<ul class="org-ul">
-<li>Purpose [to, in order to, for the purpose of]</li>
-<li>Result [so that, so as to, with the result that]</li>
-<li>Time 
-<ul class="org-ul">
-<li>Antecedent (μετὰ τό + inf) [after + finite verb] inf occurs before action of the controlling verb</li>
-</ul></li>
-</ul></li>
-</ul>
-<p>
-After the inf comes the verb. 
-</p>
-<ul class="org-ul">
-<li>Contemporaneous (ἐν τῷ + inf) [while + finite verb, as when &#x2026;] &#x2026; simultaneous &#x2026;</li>
-<li>Subsequent (πρὸ τοῦ, πρίν, πρὶν ἤ+ inf) [before + finite verb] &#x2026; after &#x2026;</li>
-</ul>
-<ul class="org-ul">
-<li>Cause [because]</li>
-<li>Means (ἐν τῷ + inf) [by + gerund, etc]</li>
-<li>Complementary</li>
-</ul>
-<p>
-Used with helper verbs, eg ἄπχομαι, βούλομαι, δύναμαι, ἐπιτρέπω, ζητέω, θέλω, μέλλω, ὀφείλω. Subject of inf is either nom or acc.
-</p>
-<ul class="org-ul">
-<li>Substantival Uses
-<ul class="org-ul">
-<li>Subject</li>
-</ul></li>
-</ul>
-<p>
-With impersonal verbs as δεῖ, ἔξεστιν, δοκεῖ 
-</p>
-<ul class="org-ul">
-<li>Direct Object</li>
-<li>Indirect Discourse</li>
-</ul>
-<p>
-After a verb of perception or communication. Inf of indirect discourse retains the tense of the direct discourse and usually represents either an imperative or indicative. 
-</p>
-<ul class="org-ul">
-<li>Appositional [namely]</li>
-</ul>
-<p>
-Apposition defines while epexegetical explains. Appositional can substitute for its antecedent but epexegetical can't. 
-</p>
-<ul class="org-ul">
-<li>Epexegetical</li>
-</ul>
-<p>
-Explains, clarifies, or qualifies a noun or adj. If an inf qualifies a verb, it should be a complementary inf.
-</p>
-<ul class="org-ul">
-<li>Independent Uses
-<ul class="org-ul">
-<li>Imperatival</li>
-<li>Absolute</li>
-</ul></li>
-</ul>
-</div>
-</div>
-<div id="outline-container-orgde76f6b" class="outline-3">
-<h3 id="orgde76f6b">12.2	Structural Categories</h3>
-<div class="outline-text-3" id="text-orgde76f6b">
-<ul class="org-ul">
-<li>Anarthrous
-<ul class="org-ul">
-<li>Simple Inf</li>
-</ul></li>
-</ul>
-<p>
-Purpose, Result, Complementary, Means (rare), Subject, Direct Obj, Indirect Discourse, Apposition, Epexegetical, Imperatival (rare), Absolute (rare) 
-</p>
-<ul class="org-ul">
-<li>πρίν ἤ + Inf. Subsequent time.</li>
-<li>ὡς + Inf. Purpose, Result.</li>
-<li>ὥστε + Inf. Purpose (rare), Result</li>
-</ul>
-<ul class="org-ul">
-<li>Articular
-<ul class="org-ul">
-<li>Without governing prepositions 
-<ul class="org-ul">
-<li>Nom Art Inf : Subject, Apposition (rare)</li>
-<li>Acc Art Inf : Direct Object, Apposition</li>
-<li>Gen Art Inf: Purpose, Result, Contemporaneous Time (rare), Cause (rare), Direct Object (dispute), Apposition, Epexegetical</li>
-</ul></li>
-<li>With Governing Preposition 
-<ul class="org-ul">
-<li>διὰ τό + inf : Cause, Contemporaneous Time (rare)</li>
-<li>εἰς + inf : Purpose, Result, Epexegetical (rare)</li>
-<li>ἐν τῷ + inf : Result (rare), Contemporaneous Time, Means</li>
-<li>μετὰ τό + inf : Antecedent time</li>
-<li>πρὸς τό + inf : Purpose, Result</li>
-</ul></li>
-</ul></li>
-</ul>
-</div>
-</div>
-</div>
-
-<div id="outline-container-orgd70e74b" class="outline-2">
-<h2 id="orgd70e74b">Participle</h2>
-<div class="outline-text-2" id="text-orgd70e74b">
-</div><div id="outline-container-orga45350f" class="outline-3">
-<h3 id="orga45350f">13.1	Adjectival</h3>
-<div class="outline-text-3" id="text-orga45350f">
-<p>
-If articular, = adjectival. If anarthrous, may be adjectival. 
-</p>
-<ul class="org-ul">
-<li>Adjectival Proper (Dependent)</li>
-</ul>
-<p>
-Attributive part. is common, predicate is rare. Translate attributive part. as a relative clause. 
-</p>
-<ul class="org-ul">
-<li>Substantival (Independent) [the one who/the thing which]</li>
-</ul>
-<p>
-The Inf. is abstract, speaking of the act or fact of doing. The participle is concrete, speaking of the person who or thing which does.
-</p>
-</div>
-</div>
-<div id="outline-container-orge8b6234" class="outline-3">
-<h3 id="orge8b6234">13.2	Verbal</h3>
-<div class="outline-text-3" id="text-orge8b6234">
-<ul class="org-ul">
-<li>Example of participles modifying infinitives
-<ul class="org-ul">
-<li>See BDF §410 “The case of adjuncts and predicates to the subject of the infinitive”, which states “Since the subject of the infinitive generally is, or is thought of as being, in the acc., it is natural that adjuncts and predicates going with the subject follow suit … participles as adjuncts may be in the dat. (or acc.) but not in the gen., for which the acc. is used”</li>
-<li>Examples
-<ul class="org-ul">
-<li>Luke 1:74 ἀφόβως ἐκ χειρὸς ἐχθρῶν ῥυσθέντας λατρεύειν αὐτῷ 
-<ul class="org-ul">
-<li>that we, being rescued from the hand of our enemies, may serve him without fear,</li>
-</ul></li>
-<li>2 Pet 2:21 κρεῖττον γὰρ ἦν αὐτοῖς μὴ ἐπεγνωκέναι τὴν ὁδὸν τῆς δικαιοσύνης ἢ ἐπιγνοῦσιν ὑποστρέψαι ἐκ τῆς παραδοθείσης αὐτοῖς ἁγίας ἐντολῆς 
-<ul class="org-ul">
-<li>For it would have been better for them never to have known the way of righteousness than, having known it, to turn back from the holy commandment that had been delivered to them.</li>
-</ul></li>
-<li>1 Pet 2:11–12 Ἀγαπητοί, παρακαλῶ ὡς παροίκους καὶ παρεπιδήμους ἀπέχεσθαι … 12 τὴν ἀναστροφὴν ὑμῶν ἐν τοῖς ἔθνεσιν ἔχοντες καλήν
-<ul class="org-ul">
-<li>Dear friends, I urge you as foreigners and exiles to keep away from fleshly desires that do battle against the soul, and maintain good conduct among the non-Christians</li>
-</ul></li>
-</ul></li>
 </ul></li>
 
-<li>Dependent Verbal 
-<ul class="org-ul">
-<li>Adverbial (or Circumstantial) [2M3C-RPT]
-<ul class="org-ul">
-<li>Temporal [after doing, while doing, before doing]</li>
-</ul></li>
-</ul></li>
 </ul>
+
+<aside class="notes">
+<ul>
+<li>In Paul's day, Galatia has an ethnic/geographical and political/geographical referent:
+<ul>
+<li>Ethnic referent (North Galatia) [Lightfoot]
+<ul>
+<li>Cities: Ancyra (moderen Ankara)</li>
+<li>It's not clear that Paul's visit to N. Galatia is recorded in Acts. Proponents of this view interpret "Galatia" in Acts 16:6, 18:23 to refer to N. Galatia. If this is so &#x2026;
+<ul>
+<li>In 2nd missionary journey, after revisiting the cities of the 1st missionary journey (Acts 16:1-4), "Paul and his companions traveled throughout the region of Phrygia and Galatia" (16:6).</li>
+<li>Thus, if Paul wrote to ethnic Galatia, the earliest date for this letter would be after this visit (about AD 50).</li>
+<li>Moreover, if Gal 4:13 refers to 2 visits to Galatia, then the 2nd visit is implied in Acts 18:23 "Paul set out from there and traveled from place to place throughout the region of Galatia and Phrygia" at the beginning of his 3rd missionary journey.</li>
+
+</ul></li>
+<li>The classic N. Galatia theory then holds that Paul wrote Gal sometimes during the 3rd missionary journey (about AD 55-56).</li>
+
+</ul></li>
+<li>Political referent (South Galatia) [Ramsey, Bruce]
+<ul>
+<li>We find Paul in provincial Galatia during the 1st missionary journey.
+<ul>
+<li>Acts 13-14</li>
+<li>Cities: Pisidian Antioch, Lystra, Iconium, Derbe</li>
+
+</ul></li>
+<li>=&gt; We can (though not necessary) date Galatians as early as immediately after the 1st missionary journey, before the Jerusalem council.</li>
+
+</ul></li>
+
+</ul></li>
+<li>Summarizing factors
+<ul>
+<li>Romanization
+<ul>
+<li>Paul typically work in Romanized countries, and N. Galatia was not very Romanized in 1st century. Major roads not constructed until 70s and 80s.</li>
+
+</ul></li>
+<li>Synagogues
+<ul>
+<li>The agitators were seeking to integrate Gentile Christians into synagogues. We have no firm evidence of Jewish influence in N. Galatia until the 3rd century.</li>
+
+</ul></li>
+<li>Evidence for Pauline mission in N. Galatia is fragmentary. 
+<ul>
+<li>S. Galatia
+<ul>
+<li>No dispute that Paul evangelized cities here.</li>
+
+</ul></li>
+<li>N. Galatia
+<ul>
+<li>Inconclusive that Paul evangelized here</li>
+<li>Proponents point to Acts 16:6; 18:23, claiming that these 2 texts refer to the 2 visits that Gal 4:13 indicate.</li>
+<li>But it's unclear whether Galatia in these 2 texts refers to N or S Galatia
+<ul>
+<li>Favoring N:
+<ul>
+<li>sequence of movements by Acts 16:1-6,
+<ul>
+<li>esp. if κωλυθέντες in 6:6 is translated as causal, "They went through the region of Phrygia and Galatia because they were forbidden by the Holy Spirit to speak the word in Asia".</li>
+<li>Looking at the map, it makes more sense that Galatia would refer to N areas.</li>
+
+</ul></li>
+<li>Moreover, Luke prefers to refer to traditional regions than more recent political entities.</li>
+
+</ul></li>
+<li>Favoring S:
+<ul>
+<li>τὴν Φρυγίαν καὶ Γαλατικὴν χώραν (16:6) should be interpreted as "the Phrygian territory incorporated in the province of Galatia." The article associates both regions as an adjective of one reigion (χώραν).</li>
+<li>The sequence of movements can be explained
+<ul>
+<li>The participle κωλυθέντες in 6:6 is translated as simultaneous to Διῆλθον, "They went through the region of Phrygia and Galatia and were prevented by the Holy Spirit from speaking the message in Asia" (so HCSB).</li>
+
+</ul></li>
+
+</ul></li>
+
+</ul></li>
+
+</ul></li>
+
+</ul></li>
+
+</ul></li>
+<li>Caveat
+<ul>
+<li>It's possible to hold to the S. Galatian theory and still argue that Gal 2:1-10 and Acts 15 refer to the same event (so Moisés Silva).</li>
+
+</ul></li>
+
+</ul>
+
+</aside>
+</section>
+</section>
+<section>
+<section id="slide-org8880a1b">
+<h2 id="org8880a1b">Date</h2>
+<ul>
+<li>AD 48, just before Jerusalem council of Acts 15 ⇒ earliest extant letter of Paul
+<ul>
+<li>Reason: No mention of Timothy</li>
+
+</ul></li>
+<li>Sequence of events
+<ul>
+<li>Planting (and follow-up visit) of the churches in South Galatia in 1st missionary journey (Acts 13:1–14:25; cf. Gal. 4:12–20)</li>
+<li>Return to Antioch, Paul stayed for “a long time” (Acts 14:26–28)</li>
+<li>Arrival of agitators in the South Galatian churches</li>
+<li>Arrival of similar false teachers from Judea to Antioch (Acts 15:1)</li>
+<li>Writing of Galatians</li>
+<li>Jerusalem Council (Acts 15:2–29)</li>
+
+</ul></li>
+
+</ul>
+<aside class="notes">
+<ul>
+<li>AD 48, just before Jerusalem council of Acts 15 =&gt; earliest extant letter of Paul
+<ul>
+<li>Reasons: No mention of Timothy.
+<ul>
+<li>Surprising:
+<ul>
+<li>Timothy is from Lystra (and if we accept the S. Galatian theory which includes the city of Lystra, this would be strange)</li>
+<li>Timothy is mentioned in every Pauline letter except Ephesians and Titus</li>
+
+</ul></li>
+<li>Conclusion: Galatians is written before Timothy joined the missionary party in 2nd missionary journey.</li>
+
+</ul></li>
+
+</ul></li>
+<li>Sequence of events
+<ul>
+<li>Planting (and follow-up visit) of the churches in South Galatia in 1st missionary journey (Acts 13:1–14:25; cf. Gal. 4:12–20)</li>
+<li>Return to Antioch, Paul stayed for “a long time” (Acts 14:26–28)</li>
+<li>Arrival of agitators in the South Galatian churches</li>
+<li>Arrival of similar false teachers from Judea to Antioch (Acts 15:1)</li>
+<li>Writing of Galatians</li>
+<li>Jerusalem Council (Acts 15:2–29)</li>
+
+</ul></li>
+
+</ul>
+
+</aside>
+</section>
+</section>
+<section>
+<section id="slide-orged0b9d8">
+<h2 id="orged0b9d8">Romans and Galatians</h2>
+<div class="outline-text-2" id="text-orged0b9d8">
+</div></section>
+</section>
+<section>
+<section id="slide-orgc8aef75">
+<h3 id="orgc8aef75">Similarities</h3>
+<ul>
+<li>Discussion of Mosaic law</li>
+<li>Justification before God by faith</li>
+<li>Righteousness language</li>
+<li>Abraham given importance in salvation history</li>
+<li>Sonship language</li>
+<li>Crucified with Christ language to show transition from old → new life</li>
+<li>The relationship of Holy Spirit to Christian existence</li>
+
+</ul>
+<aside class="notes">
+<ul>
+<li>Discussion of Mosaic law
+<ul>
+<li>νόμος: total (121x), Rom (74x), Gal (32)</li>
+<li>Only in these 2 letters
+<ul>
+<li>[τὰ] ἔργα [τοῦ] νόμου</li>
+<li>Reference to Lev 18:5 with respect to the law
+<ul>
+<li>Keep my decrees and laws, for the person who obeys them will live by them. I am the LORD.</li>
+
+</ul></li>
+<li>Dying to the law</li>
+<li>Law is fulfilled by the love command</li>
+
+</ul></li>
+
+</ul></li>
+<li>Justification before God by faith</li>
+<li>Righteousness language
+<ul>
+<li>Prominent in Rom-Gal</li>
+<li>Only in Rom-Gal: Use of Gen. 15:6 and Hab 2:4 to illuminate his teaching on righteousness</li>
+
+</ul></li>
+<li>Abraham given importance in salvation history
+<ul>
+<li>Focus on his faith</li>
+<li>Contrast between promise God gave to him and the Mosaic law</li>
+<li>True children from among all Abraham's biological descendants</li>
+
+</ul></li>
+<li>Sonship language
+<ul>
+<li>Only in Gal-Rom: υἱοθεσία, and links Christian "sonship" to Christ as Son and to future inheritance [Actually Eph also has it this language]</li>
+
+</ul></li>
+<li>Crucified with Christ language to show transition from old -&gt; new life [Only in Gal-Rom]</li>
+<li>The relationship of Holy Spirit to Christian existence [only developed in some detail in Gal-Rom]</li>
+
+</ul>
+
+</aside>
+</section>
+</section>
+<section>
+<section id="slide-org2814d84">
+<h3 id="org2814d84">Differences</h3>
+<ul>
+<li>Treatment of Abraham and Gen 15:6 in Gal 3:7-29 and Rom 4 are different</li>
+<li>Focus on different aspects of justification: time</li>
+<li>Romans has no autobiographical section in Gal 1:1-2; 14</li>
+
+</ul>
+<aside class="notes">
+<ul>
+<li>Treatment of Abraham and Gen 15:6 in Gal 3:27-29 and Rom 4 are different</li>
+<li>Focus on different aspects of justification
+<ul>
+<li>Time of justification
+<ul>
+<li>Generally, people understand that "justified by faith" = entrance to the Christian experience
+<ul>
+<li>Romans: definitive initial justification 5;1, 9; 8:30.</li>
+
+</ul></li>
+<li>Galatians: most are timeless or future
+<ul>
+<li>timeless/undetermined: 2:16, 21; 3:8, 11, 24</li>
+<li>future in 2:17; 5:4–5</li>
+<li>present [by implication] in 3:6</li>
+<li>Rationale:
+<ul>
+<li>This makes sense in light of the situation in Galatia
+<ul>
+<li>Paul argues that based on the <b>good start</b> that they have, the Galatians must <b>press onward</b>. Thus, it's not surprising that justification has a gnomic quality. A definitive act of justification is presumed. Paul insists that they need to <b>maintain</b> their status or righteousness so that they can expect to be found "in the right" at the judgment.</li>
+<li>2nd temple Judaism: They viewed God's election as the ultimate basis for their place in the covenant, but they tacitly assumed that since they have been born into it, they were always within the covenant.</li>
+<li>In this scenario, the question is not how one "gets in" initially or how "one stays in"; but how one "gets into" the eternal kingdom on the day of judgment.</li>
+
+</ul></li>
+
+</ul></li>
+<li>Summary:
+<ul>
+<li>Galatians is
+<ul>
+<li>NOT mainly about
+<ul>
+<li>sanctification</li>
+<li>how to live</li>
+<li>initial justification</li>
+
+</ul></li>
+<li>BUT about
+<ul>
+<li>ultimate justification
+<ul>
+<li>The false teachers argued that this vindication, promised only to Israel, can be experienced only by those who identify with Israel by doing Torah.</li>
+<li>Paul reads salvation history in light of the apocalyptic significance of the cross. He insists that faith (and faith alone, accompanied by the transforming power of the Spirit) maintains one's relationship to Christ, in whose person the people of God are now constituted.</li>
+<li>By supplementing their faith in Christ with torah observance, they run the risk of forfeiting their standing in christ and failing to achieve their final vindication.</li>
+
+</ul></li>
+
+</ul></li>
+
+</ul></li>
+
+</ul></li>
+
+</ul></li>
+
+</ul></li>
+
+</ul></li>
+<li>Romans has no autobiographical section in Gal 1:1-2; 14</li>
+
+</ul>
+
+</aside>
+</section>
+</section>
+<section>
+<section id="slide-org27aeaea">
+<h2 id="org27aeaea">Audience</h2>
 <p>
-When? 
+Predominantly Gentiles
 </p>
-<ul class="org-ul">
-<li>Aorist - Usually antecedent in time, but will be contemporaneous with aorist verb</li>
-<li>Present - Contemporaneous</li>
-<li>Perfect - Antecedent</li>
-<li>Future - Subsequent</li>
-</ul>
-<ul class="org-ul">
-<li>Manner [by + ptc of emotion or attitude]</li>
-</ul>
-<p>
-How? Adds color rather than explain or define (means) the verb. 
-</p>
-<ul class="org-ul">
-<li>Means [by means of]</li>
-</ul>
-<p>
-How? Could be epexegetical in defining, explaining action of the main verb. Usually Verb + Part. Used with vague, general, abstract or metaphorical finite verbs. 
-</p>
-<ul class="org-ul">
-<li>Cause [because]</li>
-</ul>
-<p>
-Why? Usually Part + Verb. Almost all perfect ptc. 
-</p>
-<ul class="org-ul">
-<li>Condition [if]</li>
-<li>Concession [although]</li>
-</ul>
-<p>
-State or action of the main verb is true in spite of the state or action of the participle. 
-</p>
-<ul class="org-ul">
-<li>Purpose</li>
-</ul>
-<p>
-Translate with inf or add "with the purpose of". Ptc + verb. Never perfect ptc, always future ptc, usually present ptc. 
-</p>
-<ul class="org-ul">
-<li>Result [with the result]</li>
-</ul>
-<p>
-Verb + Present part.
-</p>
-<ul class="org-ul">
-<li>Attendant Circumstance [Part (translated as finite verb) + "and" + main verb]</li>
-</ul>
-<p>
-5 things must occur (1) Aor part, (2) Aor main verb, (3) Imp or Ind main verb (4) Part + Verb in word order and time of event (5) Usually only in narrative lit. 
-</p>
-<ul class="org-ul">
-<li>Indirect Discourse</li>
-<li>Complementary</li>
-<li>Periphrastic</li>
-</ul>
-<p>
-Verb of being + Anarthrous part (usually present or perfect) to form a finite verbal idea. 
-</p>
-<ul class="org-ul">
-<li>Present Verb + Present Part = Present Tense</li>
-<li>Imperfect Verb + Present Part = Imperfect Tense</li>
-<li>Future Verb + Present Part = Future Tense</li>
-<li>Present Verb + Perfect Part = Perfect Tense</li>
-<li>Imperfect Verb + Perfect Part = Pluperfect Tense</li>
-</ul>
-<ul class="org-ul">
-<li>Redundant (Pleonastic)</li>
-</ul>
-<ul class="org-ul">
-<li>Independent Verbal 
-<ul class="org-ul">
-<li>As an Imperative (Imperatival)</li>
-<li>As an Indicative (Independent Proper or Absolute)</li>
+</section>
+</section>
+<section>
+<section id="slide-org364c0d7">
+<h2 id="org364c0d7">Agitators</h2>
+<div class="outline-text-2" id="text-org364c0d7">
+</div></section>
+</section>
+<section>
+<section id="slide-org70bc55f">
+<h3 id="org70bc55f">Dangers of mirror reading</h3>
+<ul>
+<li>Difficult to distinguish among
+<ul>
+<li>Exposition</li>
+<li>Polemic</li>
+<li>Apology</li>
+
 </ul></li>
+<li>Should we read everything as a response to the opponents' position?</li>
+
 </ul>
-</div>
-</div>
-<div id="outline-container-orgdc75ec7" class="outline-3">
-<h3 id="orgdc75ec7">13.3	Participle Absolute</h3>
-<div class="outline-text-3" id="text-orgdc75ec7">
-<ul class="org-ul">
-<li>Nominative Absolute</li>
-<li>Genitive Absolute 
-<ul class="org-ul">
-<li>Structure
-<ul class="org-ul">
-<li>Noun or pronoun in gen  - usually</li>
-<li>gen anarthrous part - always</li>
-<li>entire construction at the front of a sentence - usually.</li>
+<aside class="notes">
+<ul>
+<li>"difficulty lies in the fact that it is not always possible to distinguish among (1) exposition, (2) polemic (i.e., an aggressive explication), and (3) apology (i.e., a defensive response), and mirror reading works only where there is reasonable assurance that we are dealing with either polemic or apology." (WBC)
+<ul>
+<li>That is, it is only when Paul is engaged in polemic and apology that he is intentionally refuting his opponents. Thus, it is only in these passages that we can construct the opponent's position from the opposite of what Paul affirms.</li>
+
 </ul></li>
-<li>Semantic
-<ul class="org-ul">
-<li>The subject (gen noun) is different from the subj of main clause.</li>
-<li>Participle is always adverbial,</li>
-<li>usually temporal.</li>
-</ul></li>
-</ul></li>
+<li>Reversing Paul's affirmations may be helpful to get some idea on what the opponents taught and why the taught as they did. Other times, it may reflect how the Galatians understood the matter. Often, however, they only give us how Paul in the heat of controversy characterized (or even caricatured) their teaching and activity, which may not be how they saw themselves. (WBC)</li>
+
 </ul>
-</div>
-</div>
-</div>
-<div id="outline-container-org5f605cc" class="outline-2">
-<h2 id="org5f605cc">Conditional Clauses</h2>
-<div class="outline-text-2" id="text-org5f605cc">
-</div><div id="outline-container-org78db4aa" class="outline-3">
-<h3 id="org78db4aa">14.1	1st Class (Assumed True for Argument's Sake)</h3>
-<div class="outline-text-3" id="text-org78db4aa">
-<ul class="org-ul">
-<li>εἰ + ind mood, any tense (-ve οὐ); any mood, any tense</li>
-<li>Translate: “If-and let us assume that this is true for the sake of argument, then &#x2026;”</li>
+
+</aside>
+</section>
+</section>
+<section>
+<section id="slide-org1cb3609">
+<h3 id="org1cb3609">Paul's view of them</h3>
+<ul>
+<li>Troublemakers, perverters of the gospel (1:7)</li>
+<li>Under a curse (1:8–9)</li>
+<li>Guilty of witchcraft (3:1)</li>
+<li>Not seeking the Galatians’ good (4:17)</li>
+<li>Children of the slave woman Hagar (4:29)</li>
+<li>Obstruct the Christians’ progress (5:7)</li>
+<li>Leaven in the dough (5:9)</li>
+<li>They will bear their own judgment (5:10)</li>
+<li>Agitators (5:12)</li>
+<li>Seek Galatian's circumcision so that they can boast, and avoid persecution because of the cross of Christ (6:12)</li>
+<li>They don't keep the law themselves (6:13)</li>
+
 </ul>
-</div>
-</div>
-<div id="outline-container-org9dec6e8" class="outline-3">
-<h3 id="org9dec6e8">14.2	2nd Class (Contrary to Fact)</h3>
-<div class="outline-text-3" id="text-org9dec6e8">
-<ul class="org-ul">
-<li>εἰ + ind past (aor, imp) tense (-ve μή); [ἄν] + ind past tense (aor - past time, imp - present time)</li>
-<li>Assumption of an untruth for the sake of argument.</li>
-<li>E.g. Translate: “If you believed in Moses (but you did not), then …”</li>
+</section>
+</section>
+<section>
+<section id="slide-orgc83f495">
+<h3 id="orgc83f495">Identity</h3>
+<ul>
+<li>Paul may not know precisely who are troubling the Galatians.</li>
+<li>They were not part of the Galatian church</li>
+<li>Jewish Christians</li>
+<li>Possibly some connection with the Jerusalem church.</li>
+
 </ul>
-</div>
-</div>
-<div id="outline-container-orgdec9a47" class="outline-3">
-<h3 id="orgdec9a47">14.3	3rd Class (Uncertain but still likely)</h3>
-<div class="outline-text-3" id="text-orgdec9a47">
-<ul class="org-ul">
-<li>ἐάν subj mood, any tense  (-ve μήv); any mood, any tense 
-<ul class="org-ul">
-<li>A logical connection (if A, then B) in the present time</li>
-<li>A hypothetical situation or one that probably won't be fulfilled</li>
-<li>A more probable future occurrence.</li>
+<aside class="notes">
+<ul>
+<li>Paul may not know precisely who are troubling the Galatians.
+<ul>
+<li>He refers to them generally as “some people” (τινές) and “anybody” (τις) in his opening statement of the problem (1:7–9); he asks during the course of his treatment such questions as “Who has bewitched you?” (3:1) and “Who cut in on you and kept you from obeying the truth?” (5:7); and he warns, “The one who is throwing you into confusion will pay the penalty, whoever he may be” (5:10), with the singulars of 1:9 and 5:10 best seen as generic singulars (WBC)</li>
+<li>He may have heard some report of the effect of the agitators on the Galatians and may have heard about their essential argument. But we don't know any more than this.</li>
+
 </ul></li>
+<li>They were not part of the Galatian church
+<ul>
+<li>Paul always refers to the agitators in the 3rd person</li>
+<li>He addresses his converts in the 2nd person (Bruce, 24-25).</li>
+<li>Drane notes that it is unlikely that the people Paul converted would so quickly turn against him. It is therefore more likely that agitators from the ouside came in and confused the young believers.</li>
+<li>Ignore: Tyson, "Opponents in Galatia," thinks that they are Christian Jews native to Galatia. This is possible. Nevertheless, the evidence suggests that they came from outside the congregation.</li>
+<li>Ignore: Watson: The reason why Paul talks so much in ch. 2 about previous disputes in Jerusalem and Antioch is because the Galatian crisis was a continuation of those controversies.</li>
+
+</ul></li>
+<li>Jewish Christians
+<ul>
+<li>Jewish: emphasis on circumcision, obeying the law</li>
+<li>Christian: preaching of a gospel message; desire to avoid persecution for the cross of Christ
+<ul>
+<li>Thus, these Judaizers believed that Jesus was the Christ.
+<ul>
+<li>This view is challenged by
+<ul>
+<li>Muddiman</li>
+<li>Nanos
+<ul>
+<li>The reference to another gospel should be interpreted ironically (1:6-7) and their refusal to be persecuted for the sake of the cross (6:12) should not be understood to say that they claimed to be Christians.</li>
+
+</ul></li>
+
+</ul></li>
+<li>Critique of the view that opponents didn't believe that Jesus was the Christ
+<ul>
+<li>Paul nowhere criticizes the opponents for failing to believe that Jesus is the Christ. He would have done this, as we see in 1-2 John.</li>
+<li>Paul would have argued at length that Jesus was indeed the Christ.</li>
+<li>It seems more probable that the opponents would have made inroads in the Galatian congregation if they agreed significantly with Paul's gospel, while also maintaining that Paul's gospel must be supplemented and improved.</li>
+
+</ul></li>
+
+</ul></li>
+
+</ul></li>
+<li>Since the argument of the letter is for the readers to reject an offer of an alternative Gospel that includes circumcision and Jewish feast days, it is highly likely that the agitators were both Jews and Christians.</li>
+<li>They are Judaizers, i.e., they wanted to observe a Jewish way of life, a way of life prescribed in the OT laws.</li>
+<li>Bruce: Pharisaic Jews from Palestine. Probably similar to the Pharisaic opponents in Acts 15. Identify them as Judaizers.</li>
+
+</ul></li>
+<li>Possibly some connection with the Jerusalem church. 
+<ul>
+<li>They may come with high qualifications and/or were appealing to a higher authority (suggested by the ironic allusion "angel from heaven")</li>
+<li>Evidence: mention of Jersusalem at various points.</li>
+<li>But probably not commissioned by James or the Jerusalem church
+<ul>
+<li>There is no evidence that these agitators were commissioned by James/Jerusalem church to undertake these tasks. But they appear to have some connections with the Jerusalem church (cf. Acts 15:1).</li>
+<li>We should probably distinguish between the agitators in Galatia and the "men who came from James," although one can argue that the latter came to Antioch and exceeded the limits of what James sent them to do.</li>
+
+</ul></li>
+
+</ul></li>
+<li>Intent: To thwart Zealot purification against the Judean church
+<ul>
+<li>With the rising tide of Jewish nationalism in Palestine and antagonism of all who had Gentile sympathies&#x2026;
+<ul>
+<li>If they succeed in circumcising the Gentile Christians, this would then thwart any Zealot persecution of the Jerusalem church. Moreover, they could boast if they could induce the Gentile churches to enter the rank of the circumcised&#x2026;. It is this that Paul said "they wish to put up a good show in the flesh" (6:12).</li>
+<li>See Jewett, NTS 17 (1971), 198–212)</li>
+
+</ul></li>
+<li>Jewish Christians from Jerusalem who were motivated by concern for the welfare of Palestinian Christians amidst the rising pressures of Jewish nationalism and so carried on a judaizing campaign among Paul’s converts in the Diaspora in order to thwart any Zealot purification campaign against the church back home (WBC)</li>
+
+</ul></li>
+
 </ul>
-</div>
-</div>
-<div id="outline-container-org77a1338" class="outline-3">
-<h3 id="org77a1338">14.4	4th Class (Less probable future)</h3>
-<div class="outline-text-3" id="text-org77a1338">
-<ul class="org-ul">
-<li>εἰ + opt mood, present or aor; ἄν + opt mood, present or aor</li>
-<li>Indicates a possible condition in the future, usually a remote possibility.</li>
+
+</aside>
+</section>
+</section>
+<section>
+<section id="slide-orgb65b381">
+<h3 id="orgb65b381">Message and theological argument</h3>
+<ul>
+<li>Their view of Paul</li>
+<li>Teaching comes in 2 forms</li>
+
 </ul>
-</div>
-</div>
-</div>
-<div id="outline-container-org171a2e7" class="outline-2">
-<h2 id="org171a2e7">Volitionals</h2>
-<div class="outline-text-2" id="text-org171a2e7">
-</div><div id="outline-container-orgfd9f2df" class="outline-3">
-<h3 id="orgfd9f2df">15.1	Recent proposals for understanding tenses in volitionals</h3>
-<div class="outline-text-3" id="text-orgfd9f2df">
-<ul class="org-ul">
-<li>See Moo, Romans, 382 n.154.</li>
-<li>Porter, Verbal Aspects, 351–52
-<ul class="org-ul">
-<li>“Aorist tense is used when the author chooses to view the command as a whole, while the present tense, being “more heavily marked,” is used “to specify” the command, treating it as in progress or (in prohibitions) to deny that it is in progress.</li>
+
+<aside class="notes">
+<ul>
+<li>Their view of Paul
+<ul>
+<li>They discredit Paul's apostolleship (Longenecker, Schreiner)
+<ul>
+<li>Paul was not an original apostle. He was dependent and subordinate to the leadership of the Jeruaslem church (1:10-24).
+<ul>
+<li>Paul's refutation: Paul argues that his gosple came through a revelation of Jesus Christ (1:11-17)</li>
+
 </ul></li>
-<li>McKay, “Time and Aspect in New Testament Greek,” NovT 34 (1992): 209–28.
-<ul class="org-ul">
-<li>“The aorist ‘urges an activity as a whole action’ while the present (the ‘imperfective’) ‘urges it as an ongoing process.” He also thinks that μή with the present imperative often prohibits an activity in progress.</li>
+<li>Paul distorted the original message that he had received from the apostles (2:1-10).
+<ul>
+<li>He catered to Gentile wishes. He wanted success so badly that he abandoned the gospel that he usually preaches (5:11)</li>
+<li>Paul's refutation: The apostles recognized and ratified the authenticity of his gospel (2:1-10).</li>
+
 </ul></li>
-<li>Fanning, Verbal Aspects, 326–32.
-<ul class="org-ul">
-<li>Distinguishes between “specific” and “general” commands, the aorist usually used for the former and the present for the latter. In prohibitions, the present tense can signify that an action in progress is to cease, but it can also mean “make it your practice not to do.”
-<ul class="org-ul">
-<li>{This sounds to be wrong to be me} Double check.</li>
+<li>Seen in the way Paul so vigorously defends his independence and equality of his apostleship vis-a-vis that of the Jerusalem apostles, recounting his opposition to Peter, the men from James, and even Barbanabs.</li>
+<li>The account of 2:1-10 seems to indicate that the opponents claimed that the Jerusalem apostles did not agree with the Pauline gospels.</li>
+
 </ul></li>
+<li>No evidence that they questioned Paul's apostolic status or his commission to preach to the Gentiles. There is also no evidence that the Galatians doubted Paul's apostolic office or commission. (BW3)
+<ul>
+<li>What is at stake in Galatians is not his apostolic status, but his Gospel. His apostolic status is only called into question indirectly because Paul perceives that his Gospel is being challenged and/or supplemented by the agitators. (BW3)</li>
+<li>They claimed not to be opposing Paul but to be completing his message (3:3), and so bringing the Galatian Christians to perfection.</li>
+
 </ul></li>
-<li>Summary
-<ul class="org-ul">
-<li>The lack of agreement suggests that one must use caution. None of the above schemes seems able with any degree of comprehensiveness to account for Paul’s use of the tenses in commands.</li>
-<li>Negatively, Porter’s suggestion that the present often carries emphasis does not seem to work very often; and his suggestion that in this text (Rom 6:12) the present prohibitions in vv. 12 and 13a are emphatic while the positive command in v. 13b assumes what the Romans already know (Verbal Aspect, 357) turns the natural flow of the text on its head.  But there does seem to be some reason to think that Paul often uses the present to connote durative action.</li>
+
 </ul></li>
+<li>Teaching comes in 2 forms: elemental and developed.
+<ul>
+<li>Paul's message was an elemental form of the gospel</li>
+<li>Theirs is developed.</li>
+
+</ul></li>
+
 </ul>
+
+</aside>
+</section>
+</section>
+<section>
+<section id="slide-org5da339e">
+<h4 id="org5da339e">Promoted observance of the law</h4>
+<ul>
+<li>Promoted observance of the law</li>
+<li>Their argument
+<ul>
+<li>Abraham
+<ul>
+<li>Gen 26:5 "because Abraham obeyed me and did everything I required of him, keeping my commands, my decrees and my instructions."</li>
+
+</ul></li>
+<li>Jewish commendation of the law in the Diaspora</li>
+<li>Torah is a check on libertinism</li>
+
+</ul></li>
+<li>Why were the Galatians willing to accede?</li>
+
+</ul>
+<aside class="notes">
+<ul>
+<li>They promoted observance of the law
+<ul>
+<li>This is debated
+<ul>
+<li>4:10 Although Paul talks about the law, he mentions few practicalities of law-observance except calendrical days
+<ul>
+<li>They were promoting various days of the calendar</li>
+
+</ul></li>
+<li>5:3 (μαρτύρομαι δὲ πάλιν παντὶ ἀνθρώπῳ περιτεμνομένῳ ὅτι ὀφειλέτης ἐστὶν ὅλον τὸν νόμον ποιῆσαι) is ambiguous
+<ul>
+<li>Some think that the Galatians were unaware of their obligations to the law || Agitators were only interested in obvious and quick results (Jewett)</li>
+
+</ul></li>
+<li>6:13 (οὐδὲ γὰρ οἱ περιτεμνόμενοι αὐτοὶ νόμον φυλάσσουσιν)
+<ul>
+<li>Possibly imply that the agitators were not sincere in their observation of the law</li>
+
+</ul></li>
+
+</ul></li>
+<li>BUT
+<ul>
+<li>Paul's sustained critique of the law shows the significance of the law in the Galatian dispute and in the message of the agitators.</li>
+<li>So why 4:10
+<ul>
+<li>Both pagan and Jewish religion involve sacred days. Paul deliberately chose this to empahsize similarities between these 2 religions.</li>
+
+</ul></li>
+<li>So why 5:3
+<ul>
+<li>They were ignorant of this; perhaps, just naïve. They were prepared to submit to the law, but needed to face realistically the implications of observing the <i>whole</i> law. (Barclay, <i>Observing the Truth</i>, 64).</li>
+
+</ul></li>
+<li>So how about 6:13
+<ul>
+<li>Note the polemical context; this is meant to undermine the credibility of the agitators.</li>
+
+</ul></li>
+
+</ul></li>
+
+</ul></li>
+<li>Their argument
+<ul>
+<li>They used Abraham in their arguments for the law as well as for circumcision
+<ul>
+<li>Gen 26:5 (Abraham obeyed my voice and kept my charge; my commandments, my statutes and my laws). It was assumed in Jewish traditions that Abraham had kept the law even before its promulgation in Sinai.</li>
+
+</ul></li>
+<li>In the Diaspora, Jews usually commended the law in the following ways
+<ul>
+<li>The law is a universal law, a law of nature</li>
+<li>The law produced those qualities which were generally regarded as virtues in the Hellenistic world.</li>
+
+</ul></li>
+<li>Jewish law is the divinely appointed way to check libertinism within the church.
+<ul>
+<li>Paul then refutes it based on
+<ul>
+<li>the pedagogical function of the law coming to an end with Christ</li>
+<li>living by the direction of the Spirit as the antidote to libertinism</li>
+
+</ul></li>
+
+</ul></li>
+
+</ul></li>
+<li>Galatians' willingness to accede
+<ul>
+<li>Their willingness to identify as proselytes, with the Jewish nation and Jewish Christianity</li>
+<li>Why were the Galatians willing to accept the law?
+<ul>
+<li>The law provided detailed instruction for the conduct of ordinary life.
+<ul>
+<li>We can't be certain what moral instruction Paul had left with them. 5:21 suggests that he had warned them about a list of vices. It is possible that he underestimated the needs of his Gentile converts for basic moral instruction. As long as Paul was present, he could instruct them. But in his absence, and without an established tradition of Christian ethics, his advice to 'walk in the Spirit' may appear unsatisfactory.</li>
+<li>There were divisions within the church (5:15).</li>
+
+</ul></li>
+<li>Given the previous section's socological factors, the law would perform a crucial social function in prserving the Galatian Christian communities (Barclay, <i>Obey the Truth</i>, 72).</li>
+
+</ul></li>
+
+</ul></li>
+
+</ul>
+
+</aside>
+</section>
+</section>
+<section>
+<section id="slide-orgeb456a8">
+<h4 id="orgeb456a8">Promoted obervsance of circumcision</h4>
+<ul>
+<li>Promoted circumcision</li>
+<li>Why is circumcision necessary?</li>
+<li>Why were they achieving success in Galatia? 
+<ul>
+<li>Background: Circumcision was generally disdained by Gentiles</li>
+<li>Theological argument</li>
+<li>Sociological argument</li>
+
+</ul></li>
+
+</ul>
+<aside class="notes">
+<ul>
+<li>They promoted circumcision
+<ul>
+<li>Paul did preach circumcision (5:11).</li>
+<li>But he withheld this from the Galatians so as to gain his converts' initial favorable response. So, he was more interested in winning their approval than God's.
+<ul>
+<li>Paul recounts the incident in Jerusalem when the false brothers tried to impose circumcision on Titus. He does this because what happened in Jerusalem // the situation in Galatia.</li>
+
+</ul></li>
+<li>They may also have stressed that the pillars of the church in Jerusalem were also circumcized Jews preaching the gospel to other Jews.
+<ul>
+<li>Paul's use of "those that appear/seem" (2:2, 6, 9) may be a reaction to the agitator's over-evaluation of these pillars. "Jerusalem is our mother" (4:26) may be an echo of such teaching.</li>
+
+</ul></li>
+
+</ul></li>
+<li>Why is circumcision necessary?
+<ul>
+<li>So as to relate rightly to Abraham and the Abrahamic covenant, i.e. to be legitimate sons of Abraham and experience the full blessings of God's covenant with Abraham.</li>
+<li>Circumcision was necessary for inclusion in the people of God.</li>
+<li>If you want to be a son of Abraham, you must receive the covenantal sign. 
+<ul>
+<li>Probably appealed to Gen 17:9-14 where circumcision is required perpetually for both Abraham and his descendants. Thus, circumcision was not temporally limited because God calls the covenant "everlasting." They likely argued that circumcision was necessary for salvation.</li>
+<li>We can infer from Gal 3-4 that they argued strongly for Abraham.</li>
+
+</ul></li>
+
+</ul></li>
+<li>Why were they successful
+<ul>
+<li>How were the Galatians bewitched (3:1), persuaded (5:7), or compeled (6:12)?</li>
+<li>Background: Circumcision was generally disdained by Gentiles. It was the most difficult hurdle for those who were attracted to Judaism and contemplated becoming proselytes, thus you have God-fearers in Acts.</li>
+<li>Theological argument: Appeal to Scripture; Appeal to Abraham
+<ul>
+<li>Paul's emphatic reference to Abraham, his frequency, his clarity all suggest that Paul's opponents in Galatia appealed to Abraham in their persuasion of the Galatians.</li>
+<li>Paul's converts were probably taught by him to regard the OT as their Scripture.</li>
+
+</ul></li>
+<li>Sociological factors
+<ul>
+<li>Christians were socially dislocated and ostracized.</li>
+<li>Paul's presence in Galatia provided social stability (note the lavish attention they gave to Paul; 4:12-15). When he left, there was social instability. They could not share in their national and ancestral religious practice, but neither were they members of the Jewish synagogue.</li>
+<li>With a precarious social identity, we can understand how they were impressed by the agitator's message.</li>
+<li>They reinforced the Galatians' inadequate status by deliberately refusing to eat with them, or withdrawing from them at the Lord's Supper (4:17; ἐκκλεῖσαι ὑμᾶς θέλουσιν; cf. 2:11-14)</li>
+<li>By becoming proselytes, the Galatians could identify themselves with the local synagogues and hold a more understandable and recognizable place in society.</li>
+
+</ul></li>
+<li>Options [Ignore]
+<ul>
+<li>Schmitals:
+<ul>
+<li>circumcision was a gnostic rite that portrayed the liberation of the pneuma-self from the prison of his body</li>
+
+</ul></li>
+<li>Brinsmead:
+<ul>
+<li>circumcision was presented as a powerful mystery initiation</li>
+
+</ul></li>
+<li>Jewett:
+<ul>
+<li>circumcision was fused to the Hellenistic idea of perfection.</li>
+
+</ul></li>
+<li>Borgen:
+<ul>
+<li>Agitators consider Paul as their ally. Paul had already preached ethical circumcision (removal of the desires of the flesh). Agitators now present bodily circumcision as the counterpart to Paul's ethical circumcision.</li>
+
+</ul></li>
+<li>Lütgert and Harvey
+<ul>
+<li>Pressure from local Jews (their standing vis-a-vis the Jewish community).</li>
+<li>In this way, the Galatians would appease their opposition while also receiving protection from the state as a 'religio licita.'</li>
+<li>But how was such pressure applied? Moreover, it seems likely that the agitators came from outside the community.</li>
+
+</ul></li>
+
+</ul></li>
+
+</ul></li>
+
+</ul>
+
+</aside>
+</section>
+</section>
+<section>
+<section id="slide-orgebee139">
+<h2 id="orgebee139">Occasion</h2>
+<div class="outline-text-2" id="text-orgebee139">
+</div></section>
+</section>
+<section>
+<section id="slide-org660b7d5">
+<h3 id="org660b7d5">Function</h3>
+<ul>
+<li>Summary: Paul rebukes and exhorts the Galatians to resist the false teaching of the agitators, for the Gospel that he preaches is the true gospel</li>
+<li>Central issue: Continue to follow Paul's teaching or be circumcised and observe the Mosaic Law?</li>
+
+</ul>
+</section>
+</section>
+<section>
+<section id="slide-orgf796d0d">
+<h3 id="orgf796d0d">Situation</h3>
+<div class="outline-text-3" id="text-orgf796d0d">
+</div></section>
+</section>
+<section>
+<section id="slide-org6ef1c2d">
+<h4 id="org6ef1c2d">Data:</h4>
+<ul>
+<li>1:7 Some people are confusing (ταράσσοντες) the Galatians and trying to pervert the gospel</li>
+<li>3:1-5 Paul alludes to the general problem</li>
+<li>4:8-11 More details</li>
+<li>5:1-6 Paul explicitly lays out the agitator's agenda</li>
+<li>Summary: False teachers propagate a counterfeit gospel, confusing the Galatians.
+<ul>
+<li>Insist that they must supplement their faith in Christ (or complete their Christian experience) by undergoing circumcision and obeying the Mosaic law.</li>
+
+</ul></li>
+
+</ul>
+<aside class="notes">
+<ul>
+<li>Summary: False teachers are propragating a counterfeit gospel which confuses the Gentile Christians, insisting that their faith in Christ be supplemented by submission to circumcision and other elements of the Mosaic law.</li>
+<li>1:7 Some people are confusing (ταράσσοντες) the Galatians and trying to pervert the gospel
+<ul>
+<li>Possibly inclusio (ταράσσω):
+<ul>
+<li>The ones who are confusing (ταράσσων; 5:9) them are trying to keep them from "obeying the truth" (5:7)</li>
+
+</ul></li>
+
+</ul></li>
+<li>3:1-5 : Paul alludes to the general problem. Though they began in the Spirit, they are trying to "finish by means of the flesh"</li>
+<li>4:8-11 :  Paul presents more detail. They are tempted to return to slavery by observing special days and months (festivals of the Jewish liturgical calendar)</li>
+<li>5:1-6 : Paul is explicit about the agitators' agenda. They want Galatians to be justified by the law (v. 4) by undergoing circumcision.</li>
+<li>Summary: Agitators pressure the Galatians to undergo cirumcision and submit to the Mosaic law as a means of completing their Christian experience.</li>
+
+</ul>
+
+</aside>
+</section>
+</section>
+<section>
+<section id="slide-orgf60dbd2">
+<h4 id="orgf60dbd2">Construal</h4>
+<ul>
+<li>Jewish-Christian missionaries pressure Galatians to undergo circumcision and submission to the Mosaic law to complete their Christian experience.</li>
+<li>Perspective of these missionaries
+<ul>
+<li>Stress continuity in salvation history</li>
+<li>They act to avoid perseuction for the cross of Christ (6:12)</li>
+<li>Claim to represent Jerusalem</li>
+
+</ul></li>
+
+</ul>
+<aside class="notes">
+<ul>
+<li>Jewish-Christian missionaries are pressuring the Galatians to undergo circumcision and submission to the Mosaic law to complete their Christian experience.</li>
+<li>Perspective of these missionaries
+<ul>
+<li>They stress a continuity in salvation history by arguing that the OT requires anyone to be the seed or children of Abraham to be circumcised and to commit to a life of obedience to the Torah
+<ul>
+<li>From a standard Jewish reading of the OT, only descendants of Abraham can hope for ultimate vindication on the day of judgement.</li>
+<li>Jews affirm their identity as people of Abraham by circumcision and obedience to the Mosaic law.</li>
+<li>They affirm that Jesus is the Messiah and that faith is now necessary for identification with God's people.</li>
+<li>Gentiles can also become members of God's people.</li>
+<li>But in order to experience eschatological salvation, Gentiles also needed to become descendants of Abraham by undergoing the traditional requirements imposed on converts to Judaism (circumcision and adherence to the Mosaic law).</li>
+
+</ul></li>
+<li>Even though Paul is addressing a single Christian-Jewish opposition, Paul is fighting 2 fronts: legalism (1:1-5:12) and antinomianism (5:13-6:10)</li>
+<li>"to complete their Christian experience":
+<ul>
+<li>Using Sanders' terminology, they are focusing not on how to get in, but on how to stay in. However, the focus is not on how to stay in only, but on ultimate vindication in the judgment.</li>
+<li>Dunn (See BW3, 25 n.47): The issue is neither getting in nor staying in, but ‘going on’ and how the Christians in Galatia were supposed to live out their faith.</li>
+
+</ul></li>
+<li>These agitators were acting in order to avoid persecuted for the cross of Christ (6:12). They did not want to give offense to fellow Jews.
+<ul>
+<li>This would be similar to "those from James" in Gal 2.</li>
+
+</ul></li>
+<li>These agitators claimed to represent Jerusalem. This makes sense of the Hagar-Sarah allegory where Paul contrasts the present Jerusalem with the Jerusalem above. Paul nevertheless identifies their perspective with Judaism in general.</li>
+
+</ul></li>
+
+</ul>
+
+</aside>
+</section>
+</section>
+<section>
+<section id="slide-orgd0994a8">
+<h3 id="orgd0994a8">Paul's Response:</h3>
+<div class="outline-text-3" id="text-orgd0994a8">
+</div></section>
+</section>
+<section>
+<section id="slide-orgfde9495">
+<h4 id="orgfde9495">Data</h4>
+<ul>
+<li>1:11-2:21 Paul's autobiography: illustrates relationship between the "truth of the gospel" and the law of Moses.
+<ul>
+<li>Note also his relationship to the Jerusalem apostles (1:17-2:14)</li>
+
+</ul></li>
+<li>3:1-5:12 Uses Galatian's own experience and Scripture</li>
+<li>5:13-6:18 Only faith and the work of God's Spirit apart from Torah can empower us to live lives that please God</li>
+
+</ul>
+<aside class="notes">
+<ul>
+<li>He uses his own personal experience to illustrate relationship between the "truth of the gospel" and the law of Moses (1:11-2:21), with a particular focus on his relationship to the Jerusalem apostles (1:17-2:14)</li>
+<li>He uses the Galatians' own experience and esp. Scripture to argue that the justification that accompanies belonging to the "seed" of Abraham is by faith, apart from torah obseravnce (3:1-5:12)</li>
+<li>He shows that conduct pleasing to God is secured by that same faith and the work of God's Spirit apart from Torah (5:13-6:18)</li>
+
+</ul>
+
+</aside>
+</section>
+</section>
+<section>
+<section id="slide-orgf81d196">
+<h4 id="orgf81d196">Construal: A salvation-historical argument</h4>
+<ul>
+<li>Both continuity and discontinuity</li>
+<li>Element that brings about discontinuity: the crucified and resurrected Christ</li>
+<li>Continuity</li>
+<li>Discontinuity</li>
+<li>Summary of Paul's argument: What times is it?</li>
+
+</ul>
+
+<aside class="notes">
+<ul>
+<li>In his reading of the OT, there is continuity and discontinuity</li>
+<li>Key element that brings about discontinuity: significance of the crucified and resurrected Christ.
+<ul>
+<li>This event ushers in the eschatological new creation. In this new state, faith and the Spirit now marks the "Israel of God" (6:16), the true people of God and thus Abraham's descendants.</li>
+
+</ul></li>
+<li>Continuity:
+<ul>
+<li>Christians still tied to Abraham</li>
+<li>Christians still fulfil (not replace or abolish) the law</li>
+
+</ul></li>
+<li>Discontinuity:
+<ul>
+<li>Mosaic covenant is a temporary phase in salvation history, subordinate to and accomplishes something different than the Abrahamic covenant.</li>
+<li>The law, which came after Abraham, was intended to be in effect only until the Messiah comes.</li>
+
+</ul></li>
+<li>Summary of Paul's argument: What time is it? (given Paul's emphasis on a salvation-historical argument)</li>
+
+</ul>
+
+</aside>
+</section>
+</section>
+<section>
+<section id="slide-orgf28e4d2">
+<h2 id="orgf28e4d2">Summary</h2>
+<div class="outline-text-2" id="text-orgf28e4d2">
+</div></section>
+</section>
+<section>
+<section id="slide-org8a7f995">
+<h3 id="org8a7f995">Rhetorical voice</h3>
+<ul>
+<li>Only the gospel of Jesus Christ enables all to be justified before God and to live for God.</li>
+<li>Central verses: 2:15-21</li>
+
+</ul>
+</section>
+</section>
+<section>
+<section id="slide-orgb19147c">
+<h3 id="orgb19147c">Outline</h3>
+<ul>
+<li>Introduction: Desertion from the gospel (1:1–10)</li>
+<li>Source of the gospel: God, not man (1:11–2:14)</li>
+<li>Truth of the gospel defined (2:15–21)</li>
+<li>Defense of the gospel (3:1–4:7)</li>
+<li>Appeal for the gospel (4:8-5:12)</li>
+<li>Life of the gospel: Living out freedom in the Spirit (5:13–6:10)</li>
+<li>Closing: Not circumcision, but the new creation (6:11–18)</li>
+
+</ul>
+<aside class="notes">
+<ul>
+<li>Introduction: Desertion from the gospel (1:1–10)
+<ul>
+<li>Introduces the central issue: Paul is astonished that the Galatians are deserting the gospel, turning away from the grace that is theirs in the gospel of Christ. What they are turning to is not a gospel at all.</li>
+
+</ul></li>
+<li>Source of the gospel: God, not man (1:11–2:14)
+<ul>
+<li>Paul argues that the gospel he preaches is not a human gospel but came through revelation of Jesus Christ.</li>
+<li>He does this to assure his readers that they have received the true gospel.</li>
+
+</ul></li>
+<li>Truth of the gospel defined (2:15–21)
+<ul>
+<li>Paul explains what is the essence of his gospel; he delineates the gospel</li>
+<li>Key point is in 2:16: Justification before God comes through faith in Jesus Christ and not through works of the law.</li>
+
+</ul></li>
+<li>Defense for his gospel (3:1–4:7)
+<ul>
+<li>This section and the next constitute the central argument of the letter.</li>
+<li>Here, Paul makes a defense of the gospel.</li>
+<li>Arguments based from
+<ul>
+<li>experience: Reception of the Spirit is decisive evidence that they are justified by faith</li>
+<li>Scripture: From Gen 15:6, Abraham believed God and was credited to him as righteousness. Therefore, those who have faith are Abe's children, and only these will receive Abe's blessings.</li>
+<li>salvation history: Priority of Abe's covenant over Mosaic covenant</li>
+
+</ul></li>
+
+</ul></li>
+<li>Appeal for the gospel (4:8-5:12)
+<ul>
+<li>In previous section, Paul makes arguments. He may occasionally address his readers, but doesn't refer to them directly. Now, he addresses them directly and appeals to them.</li>
+<li>Appeals to
+<ul>
+<li>freedom from the law
+<ul>
+<li>personal history: Reverting back to the law is returning to slavery under paganism</li>
+<li>friendship: We were BFF. Paul rehearses his history with the Galatians, appeals to them to live in accord with the model he provides</li>
+<li>allegory: believers are children of the free women, not the slave</li>
+
+</ul></li>
+<li>stand in the freedom that Christ brings
+<ul>
+<li>Paul now turns to the specific issue facing the Galatians: circumcision.</li>
+
+</ul></li>
+
+</ul></li>
+
+</ul></li>
+<li>Life of the gospel: Living out freedom in the Spirit (5:13–6:10)
+<ul>
+<li>Agitators: Paul's version of the gospel does not provide sufficient means to fight the tendency of people to sin. You need clear dos and don'ts from the law.</li>
+<li>Paul: 
+<ul>
+<li>Life lived under the gospel is a powerful and compelling alternative to live lived under the law. It is the only adequate means to maintain and confirm one's status of righteousness before God.</li>
+<li>The Spirit enables believers to overcome the power of the flesh. By stimulating love for others, it provides for the true fulfillment of the law.</li>
+
+</ul></li>
+
+</ul></li>
+<li>Closing: Not circumcision, but the new creation (6:11–18)
+<ul>
+<li>Summarizes many of the major themes</li>
+<li>The cross of Christ is the decisive turning point in history so that the new creation is inaugurated. Hence, those who still advocate circumcision have denied the cross and belong to this present evil age.</li>
+
+</ul></li>
+
+</ul>
+
+</aside>
+</section>
+</section>
 </div>
 </div>
-</div>
-</div>
-<div id="postamble" class="status">
-<p class="date">Created: 2018-09-25 Tue 20:53</p>
-<p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
-</div>
+<script src="file:///C:/Users/user/Downloads/emacs/reveal.js-master/reveal.js-master/lib/js/head.min.js"></script>
+<script src="file:///C:/Users/user/Downloads/emacs/reveal.js-master/reveal.js-master/js/reveal.js"></script>
+
+<script>
+// Full list of configuration options available here:
+// https://github.com/hakimel/reveal.js#configuration
+Reveal.initialize({
+
+controls: true,
+progress: true,
+history: false,
+center: true,
+slideNumber: 'h/v',
+rollingLinks: true,
+keyboard: true,
+overview: true,
+width: 1200,
+height: 800,
+margin: 0.10,
+minScale: 0.50,
+maxScale: 2.50,
+
+theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
+transition: Reveal.getQueryHash().transition || 'none', // default/cube/page/concave/zoom/linear/fade/none
+transitionSpeed: 'default',
+multiplex: {
+    secret: '', // null if client
+    id: '', // id, obtained from socket.io server
+    url: '' // Location of socket.io server
+},
+
+// Optional libraries used to extend on reveal.js
+dependencies: [
+ { src: 'file:///C:/Users/user/Downloads/emacs/reveal.js-master/reveal.js-master/plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+ { src: 'file:///C:/Users/user/Downloads/emacs/reveal.js-master/reveal.js-master/plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+ { src: 'file:///C:/Users/user/Downloads/emacs/reveal.js-master/reveal.js-master/plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }]
+});
+</script>
 </body>
 </html>
